@@ -1,4 +1,4 @@
-# [Your Name] - [Team name] Accomplishment Tracking
+# [Your Name] - Store Front Accomplishment Tracking
 
 Each team member should have their own version of this document.
 

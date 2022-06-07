@@ -1,4 +1,4 @@
-# [team name] Team Charter
+# Store Front Team Charter
 
 ## Instructions
 
@@ -35,10 +35,11 @@ These resources may be helpful as you fill out your team charter. They are optio
 
 |Name            |Preferred Contact Method (Zoom, Slack, email, etc.) |
 |---	           |---                                           |
-|Team Member (a) |                                              |
-|Team Member (b) |                                              |
-|Team Member (c) |                                              |
-|Team Member (d) |                                              |
+|Jeremy Griffin | Slack                                             |
+|Raymond O'Neill |   Slack                                           |
+|Svetlana Baranova | Slack                                             |
+|Violet Red | Slack                                             |
+|Jonathan Riedemann |                                              |
 
 ### Psychological safety
 
@@ -106,19 +107,21 @@ These resources may be helpful as you fill out your team charter. They are optio
 **What is personally important for each team member about joining BloomTech? About
 becoming an software engineer?**
 
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
+* Jeremy Griffin: providing a better life for my family.
+* Raymond O'Neill: have a stable career.
+* Svetlana Baranova: start interesting career with a lot of apportunites.
+* Violet Red: can work an software engineer and travel 
+* Jonathan Riedemann: 
 
 **What each team member wants to achieve: e.g. improve analytical skills, learn
 project management skills, develop public speaking skills, speak up more, speak
 up less, etc.**
 
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
+* Jeremy Griffin: better understanding softwear engeenering.
+* Raymond O'Neill: solid understanding of backend developing.
+* Svetlana Baranova: speak up more, explain my ideas in clear way.
+* Violet Red: collaboration skills
+* Jonathan Riedemann: 
 
 ## Team Member Roles and Responsibilities
 
@@ -138,7 +141,8 @@ rotating or permanent roles as you go.*
 
 **I agree to the terms and conditions of these team agreements:**
 
-* Team member (a) Name & Date:
-* Team member (b) Name & Date:
-* Team member (c) Name & Date:
-* Team member (d) Name & Date:
+* Team member (a) Jeremy Griffin & Date:
+* Team member (b) Raymond O'Neill & Date:
+* Team member (c) Svetlana Baranova & Date:
+* Team member (d) Violet Red & Date:
+* Team member (d) Jonathan Riedemann & Date:
