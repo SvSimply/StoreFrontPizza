@@ -1,63 +1,70 @@
 # Store Front Design Document
 
-## Instructions
 
-*Replace italicized text (including this text!) with details of the design you
-are proposing for your team project. (Your replacement text shouldn't be in
-italics)*
 
-*You should take a look at the example design document in the same folder as
-this template for more guidance on the types of information to capture, and the
-level of detail to aim for.*
 
-## *Project Title* Design
+
+## Store Front Design
 
 ## 1. Problem Statement
 
-*Explain clearly what problem you are trying to solve.*
+Our team is creating the online presence of Jimbo's Pizzeria, a local restaurant.
+With the increased popularity of ordering food via the app, the restaurant has decided to create its own online storefront.
+This design document describes the online services available to the customer.
+The service is designed to receive a food order from the customer, return an order confirmation, allow special requests to be added to the order, and provide the order's status to the customer.
+
 
 
 ## 2. Top Questions to Resolve in Review
 
-*List the most important questions you have about your design, or things that
-you are still debating internally that you might like help working through.*
+How to get order status to the customer?
 
-1.   
-2.   
-3.  
+How to get the front and back end to communicate with each other?
+
+How many database tables are needed?
+
+Update menu functionality?
+
 
 ## 3. Use Cases
 
-*This is where we work backwards from the customer and define what our customers
-would like to do (and why). You may also include use cases for yourselves, or
-for the organization providing the product to customers.*
+u1: I as a customer am hungry and would like to order food online.
 
-U1. *As a [product] customer, I want to `<result>` when I `<action>`*
+u2: I as a customer want to view the status of my order.
 
-U2. *As a [product] customer, I want to view my grocery list when I log into the
-grocery list page*
-    
-U3. ...
+u3: I as a customer would like to view previous orders.
+
+u4: I as a customer would like to update my order.
+
 
 ## 4. Project Scope
 
-*Clarify which parts of the problem you intend to solve. It helps reviewers know
-what questions to ask to make sure you are solving for what you say and stops
-discussions from getting sidetracked by aspects you do not intend to handle in
-your design.*
+4a Minimum:
 
-### 4.1. In Scope
+    Place default orders.
+    Menu.
+    List of active orders.
+    Take in customer information.
+    Calculate price.
 
-*Which parts of the problem defined in Sections 1 and 2 will you solve with this
-design?*
 
-### 4.2. Out of Scope
 
-*Based on your problem description in Sections 1 and 2, are there any aspects
-you are not planning to solve? Do potential expansions or related problems occur
-to you that you want to explicitly say you are not worrying about now? Feel free
-to put anything here that you think your team can't accomplish in the unit, but
-would love to do with more time.*
+4b In Scope:
+
+    Custom pizza from ingredients list.
+    Customer facing front end.
+    Business facing back end.
+    Random pizza.
+    User Log in.
+    Orders will have an updatable status.
+
+
+4c Out of Scope:
+
+        Communicate with customers through phone numbers.
+        Credit card functionality.
+        Delivery.
+
 
 # 5. Proposed Architecture Overview
 
