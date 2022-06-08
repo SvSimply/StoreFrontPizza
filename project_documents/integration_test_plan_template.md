@@ -1,4 +1,4 @@
-# Store Front Integration Test Plan
+# [team name] Integration Test Plan
 
 ## Instructions
 
