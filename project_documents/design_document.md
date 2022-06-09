@@ -68,16 +68,52 @@ u4: I as a customer would like to update my order.
 
 # 5. Proposed Architecture Overview
 
-*Describe broadly how you are proposing to solve for the requirements you
-described in Section 2.*
+**Webpages with all features:**
 
-*This may include class diagram(s) showing what components you are planning to
-build.*
+**Start page** 
 
-*You should argue why this architecture (organization of components) is
-reasonable. That is, why it represents a good data flow and a good separation of
-concerns. Where applicable, argue why this architecture satisfies the stated
-requirements.*
+* with buttons “make an order”, “check order’s status”, and “for business use”.
+* check the order’s status input field on the start page instead of a separate page.
+
+**Client front-end part:**
+
+* Menu list with the ability to select items and enter counts. Button “Next”.
+* A custom pizza page with ingredients to choose from.
+* A checkout page with places to enter customer data and the button “Order”.
+* Shows the total sum.
+* Additional feature: show selected items.
+* Additional feature: change order.
+* Order succeeded page with a happy phrase, a new order id, total, and a list of ordered items (?).
+* Use the Order status result page to show status immediately after the order is placed.
+* If an error occurs then an unhappy phrase.
+* Check the order’s status page with two input fields (order id or phone number).
+* Order status result page with the order’s status with update time.
+
+**Business facing front-end:**
+
+* List of active orders page with a button to mark order done.
+* Additional feature: show all orders sorted by status.
+* Restaurant stock page with information from the database.
+* Additional feature: change the remaining count of ingredients in stock.
+
+**Features mentioned above:**
+
+* Display menu items on the website from the database (not a hardcode).
+* Make and save orders to the database.
+* Business facing front end.
+* Retrieve the order’s status with update time by order Id or customer’s phone number (the last order with this customer’s phone number).
+* Maybe split into two parts: first retrieve status by order id, second alternative way using customer’s phone number.
+* Ingredient multiplayer for each ingredient to convert amounts from per pizza to common units.
+* Create a custom pizza.
+* Restaurant stock tracking. Can be part of Business facing front end.
+* Mark the item as unavailable on the website because of the lack of ingredients.
+* Show selected items and total before confirming an order.
+* Change the remaining count of ingredients in stock from the Business facing front-end (not manually in the database).
+* Change order during checkout.
+* On business front-end page show all orders from the database sorted by status. Maybe add filters.
+* Ingredient multiplayer for each ingredient to convert amounts from per pizza to common units.
+* Add different sizes of pizza.
+
 
 # 6. API
 
@@ -109,10 +145,23 @@ the first endpoint)*
 
 # 7. Tables
 
-*Define the DynamoDB tables you will need for the data your service will use. It
-may be helpful to first think of what objects your service will need, then
-translate that to a table structure, like with the *`Playlist` POJO* versus the
-`playlists` table in the Unit 3 project.*
+
+**Tables and POJO classes:**
+
+* Table with Ingredients and remaining count.
+* For the MVP part can be an enum class.
+* 1 means the need for 1 pizza.
+* Note: remaining count needed for additional restaurant stock tracking feature.
+* One more additional feature: mark the item as unavailable on the website because of the lack of ingredients.
+* Amount of each ingredient for one pizza.
+* Table with Menu items, descriptions, and prices for website display.
+* Additionally, an ingredient list with amounts needed to prepare items (Note: for additional restaurant stock tracking feature).
+* How to store ingredients and amount pairs? - store the list of ingredients in the Menu table and store amounts separately in the Ingredients table.
+* Table with Orders information: customer info, list of items, date of order, total sum, the status of an order, update DateTime.
+* Orders are saved in this table.
+* The table is used to show the orders list for the Business facing front end.
+* Table with Customer for login.
+* Don’t need for MVP.
 
 # 8. Pages
 
