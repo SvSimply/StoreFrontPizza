@@ -119,56 +119,145 @@ u4: I as a customer would like to update my order.
 
 ## 6.1. Public Models
 
-*Define the data models your service will expose in its responses via your
-*`-Model`* package. These will be equivalent to the *`PlaylistModel`* and
-*`SongModel`* from the Unit 3 project.*
+6.1. Public Models
+Data Models for wrapping classes:
 
-## 6.2. *First Endpoint*
+### **IngredientsModel**
 
-*Describe the behavior of the first endpoint you will build into your service
-API. This should include what data it requires, what data it returns, and how it
-will handle any known failure cases. You should also include a sequence diagram
-showing how a user interaction goes from user to website to service to database,
-and back. This first endpoint can serve as a template for subsequent endpoints.
-(If there is a significant difference on a subsequent endpoint, review that with
-your team before building it!)*
+* String name;
 
-*(You should have a separate section for each of the endpoints you are expecting
-to build...)*
+* Integer quantity; // 1 per 1 pizza
 
-## 6.3 *Second Endpoint*
+### **MenuModel**
 
-*(repeat, but you can use shorthand here, indicating what is different, likely
-primarily the data in/out and error conditions. If the sequence diagram is
-nearly identical, you can say in a few words how it is the same/different from
-the first endpoint)*
+* String itemId;
+
+* String name;
+
+* String description;
+
+* List<String> ingredients;
+
+* Double price;
+
+### **OrdersModel**
+* String orderId;
+
+* String customerPhone;
+
+* List<String> items; // “pepperoni pizza”,  “pepperoni pizza”, “cheese pizza”
+
+* Double total;
+
+* String status;
+
+* Date orderDate;
+
+* Date lastUpdateDate;
+
+### **Flow Chart** 
+![The client visits the playlist page of the Website Playlist. The Website
+playlist page sends a get song request to the GetPlaylistSongsActivity. The
+GetPlaylistSongsActivity calls the playlists database to load the playlist. The
+playlists database returns the playlist item to the GetPlaylistSongsActivity.
+The GetPlaylistSongsActivity returns a List<SongModel> to the Website Playlist
+page. The Website playlist page presents a list of songs to the
+client.](images/FlowChart.png)
+
+
+
+## 6.2. *Get Menu Endpoint*
+* Accepts GET request to /order
+
+* Returns the MenuModel
+
+![](images/GetMenuActivity.png)
+## 6.3 *Create Order Endpoint*
+
+* Accepts POST request to /checkout
+
+* Accepts a list of items and customer information and returns order id and status.
+
+* Phone number and customer’s name are required
+
+* Phone number contains only numbers, spaces, 10 digits
+
+* A list of items has at least 1 item.
+
+* Throw an InvalidAttributeValueException if a bad input occurs.
+
+![](images/CreateOrder.png)
+
+## 6.4 *Get Active Orders Endpoint*
+
+* Accepts GET request to /owner
+* Returns the list of OrdersModel objects with status = “received” OR “in-process”
+
+![](images/GetOrderStatus.png)
+
 
 # 7. Tables
 
+### 7.1 Order Table
 
-**Tables and POJO classes:**
+* OrderID 	// String - Primary
 
-* Table with Ingredients and remaining count.
-* For the MVP part can be an enum class.
-* 1 means the need for 1 pizza.
-* Note: remaining count needed for additional restaurant stock tracking feature.
-* One more additional feature: mark the item as unavailable on the website because of the lack of ingredients.
-* Amount of each ingredient for one pizza.
-* Table with Menu items, descriptions, and prices for website display.
-* Additionally, an ingredient list with amounts needed to prepare items (Note: for additional restaurant stock tracking feature).
-* How to store ingredients and amount pairs? - store the list of ingredients in the Menu table and store amounts separately in the Ingredients table.
-* Table with Orders information: customer info, list of items, date of order, total sum, the status of an order, update DateTime.
-* Orders are saved in this table.
-* The table is used to show the orders list for the Business facing front end.
-* Table with Customer for login.
-* Don’t need for MVP.
+* Name 		// String
+
+* Phone# 	// String
+
+* MenuItems 	// StringArray (ID of menu item)
+
+* Status 		// String
+
+* OrderDate 	// String - Sort
+
+* UpdatedDate 	// String
+### 7.2 Menu Table
+
+* ID 		// String - Primary
+
+* Name 		// String - Sort
+
+* Description 	// String
+
+* Category 	// String
+
+* Cost 		// Number
+
+* IngredientList // StringArray
+### 7.3 Ingredient Table
+
+* ID 		// String - Primary
+
+* Name 		// String - Sort
+
+* Description	// String
+
+* Stock 		// Number
+
+* Cost		// Number
+
+
 
 # 8. Pages
 
-*Include mock-ups of the web pages you expect to build. These can be as
-sophisticated as mockups/wireframes using drawing software, or as simple as
-hand-drawn pictures that represent the key customer-facing components of the
-pages. It should be clear what the interactions will be on the page, especially
-where customers enter and submit data. You may want to accompany the mockups
-with some description of behaviors of the page (e.g. “When customer submits the
-submit-dog-photo button, the customer is sent to the doggie detail page”)*
+# **Web Page Sketches**
+
+## **Home Page**
+
+![](images/Home.png)
+
+## **Business Home**
+
+![](images/BusinessPage.png)
+
+## **Menu**
+
+![](images/Menu.png)
+
+## **Order Status**
+
+![](images/OrderStatus.png)
+
+
