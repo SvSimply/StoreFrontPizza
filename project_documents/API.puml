@@ -1,0 +1,58 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+actor Client #blue
+database DynamoDB #green
+alt successful case
+
+    Client -[#blue]>> Menu: Authentication Accepted
+
+    Menu -[#blue]>> CreateOrder
+
+    CreateOrder -[#blue]>> OrderStatus
+
+    OrderStatus -[#blue]>> GetActiveOrder
+
+    GetActiveOrder -[#blue]>> UpdateOrderStatus
+
+    UpdateOrderStatus -[#blue]>> Stock
+
+    UpdateOrderStatus -[#blue]>> GetOrderStatus
+
+    GetOrderStatus -[#blue]>> GetActiveOrders
+
+    DynamoDB -[#green]>> Client
+
+    Stock -[#green]>> DynamoDB
+
+    GetOrderStatus -[#green]>> DynamoDB
+
+    GetActiveOrders -[#green]>> DynamoDB
+
+else some kind of failure
+    Client <<[#red]- GetOrderStatus: Authentication Failure
+    alt if order cannot be placed
+    Client <<[#red]- CreateOrder : throw InvalidAttributeValueException
+    else else continue
+    end
+ alt UpdateOrderStatus
+ Client <<[#red]- UpdateOrderStatus : throw TimeoutException
+ else else continue
+ end
+
+ alt Stock error
+ Client <<[#red]- Stock : throw InvalidAttributeValueException
+ else else continue
+ end
+
+ alt GetOrderStatus
+  Client <<[#red]- GetOrderStatus : throw TimeoutException
+  else else continue
+  end
+
+ alt GetActiveOrders
+  Client <<[#red]- GetActiveOrders : throw TimeoutException
+  else else continue
+  end
+
+end
+@enduml
