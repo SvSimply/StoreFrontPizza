@@ -4,14 +4,14 @@
 
 
 
-## Store Front Design
+~~## Store Front Design
 
 ## 1. Problem Statement
 
 Our team is creating the online presence of Jimbo's Pizzeria, a local restaurant.
 With the increased popularity of ordering food via the app, the restaurant has decided to create its own online storefront.
 This design document describes the online services available to the customer.
-The service is designed to receive a food order from the customer, return an order confirmation, allow special requests to be added to the order, and provide the order's status to the customer.
+The service is designed to receive a fo~~od order from the customer, return an order confirmation, allow special requests to be added to the order, and provide the order's status to the customer.
 
 
 
@@ -36,34 +36,43 @@ u3: I as a customer would like to view previous orders.
 
 u4: I as a customer would like to update my order.
 
+u5: I as an owner would like to see the list of active orders.
+
+u6: I as an owner would like to change order's status.
+
+u7: I as an owner would like to see actual restaurant's stock.
+
 
 ## 4. Project Scope
 
 4a Minimum:
 
-    Place default orders.
-    Menu.
-    List of active orders.
-    Take in customer information.
-    Calculate price.
-
-
+    Display menu items on the website from the database (not a hardcode).
+    Make and save orders to the database.
+    Customer facing front end and Business facing front end.
+    List of active orders for Business use.
+    Calculate total price of order.
 
 4b In Scope:
 
+    Orders will have an updatable status from Business facing front end.
+    Retrieve the order’s status with update time by order Id or customer’s phone number.
     Custom pizza from ingredients list.
-    Customer facing front end.
-    Business facing back end.
+    Restaurant stock tracking. Can be part of Business facing front end.
     Random pizza.
+    Mark the item as unavailable on the website because of the lack of ingredients.
+    Show selected items and total before confirming an order.
+    Change the remaining count of ingredients in stock from the Business facing front-end (not manually in the database).
     User Log in.
-    Orders will have an updatable status.
-
+    Add different sizes of pizza.
+    Change order during checkout.
 
 4c Out of Scope:
 
-        Communicate with customers through phone numbers.
-        Credit card functionality.
-        Delivery.
+    Security.
+    Communicate with customers through phone numbers.
+    Credit card functionality.
+    Delivery.
 
 
 # 5. Proposed Architecture Overview
@@ -96,65 +105,37 @@ u4: I as a customer would like to update my order.
 * Restaurant stock page with information from the database.
 * Additional feature: change the remaining count of ingredients in stock.
 
-**Features mentioned above:**
-
-* Display menu items on the website from the database (not a hardcode).
-* Make and save orders to the database.
-* Business facing front end.
-* Retrieve the order’s status with update time by order Id or customer’s phone number (the last order with this customer’s phone number).
-* Maybe split into two parts: first retrieve status by order id, second alternative way using customer’s phone number.
-* Ingredient multiplayer for each ingredient to convert amounts from per pizza to common units.
-* Create a custom pizza.
-* Restaurant stock tracking. Can be part of Business facing front end.
-* Mark the item as unavailable on the website because of the lack of ingredients.
-* Show selected items and total before confirming an order.
-* Change the remaining count of ingredients in stock from the Business facing front-end (not manually in the database).
-* Change order during checkout.
-* On business front-end page show all orders from the database sorted by status. Maybe add filters.
-* Ingredient multiplayer for each ingredient to convert amounts from per pizza to common units.
-* Add different sizes of pizza.
-
 
 # 6. API
 
 ## 6.1. Public Models
 
-6.1. Public Models
-Data Models for wrapping classes:
+```
+// IngredientsModel
 
-### **IngredientsModel**
+String name;
+Integer quantity; // 1 per 1 pizza
+```
+```
+// MenuModel
 
-* String name;
+String itemId;
+String name;
+String description;
+List<String> ingredients;
+Double price;
+```
+```
+// OrdersModel
 
-* Integer quantity; // 1 per 1 pizza
-
-### **MenuModel**
-
-* String itemId;
-
-* String name;
-
-* String description;
-
-* List<String> ingredients;
-
-* Double price;
-
-### **OrdersModel**
-* String orderId;
-
-* String customerPhone;
-
-* List<String> items; // “pepperoni pizza”,  “pepperoni pizza”, “cheese pizza”
-
-* Double total;
-
-* String status;
-
-* Date orderDate;
-
-* Date lastUpdateDate;
-
+String orderId;
+String customerPhone;
+List<String> items; // “pepperoni pizza”,  “pepperoni pizza”, “cheese pizza”
+Double total;
+String status;
+Date orderDate;
+Date lastUpdateDate;
+```
 ### **Flow Chart** 
 ![The client visits the playlist page of the Website Playlist. The Website
 playlist page sends a get song request to the GetPlaylistSongsActivity. The
@@ -167,77 +148,72 @@ client.](images/FlowChart.png)
 
 
 ## 6.2. *Get Menu Endpoint*
-* Accepts GET request to /order
-
+* Accepts GET request to `/order`
 * Returns the MenuModel
 
 ![](images/GetMenuActivity.png)
 ## 6.3 *Create Order Endpoint*
 
-* Accepts POST request to /checkout
-
+* Accepts POST request to `/checkout`
 * Accepts a list of items and customer information and returns order id and status.
-
 * Phone number and customer’s name are required
-
 * Phone number contains only numbers, spaces, 10 digits
-
 * A list of items has at least 1 item.
-
 * Throw an InvalidAttributeValueException if a bad input occurs.
 
 ![](images/CreateOrder.png)
 
 ## 6.4 *Get Active Orders Endpoint*
 
-* Accepts GET request to /owner
+* Accepts GET request to `/owner`
 * Returns the list of OrdersModel objects with status = “received” OR “in-process”
 
 ![](images/GetOrderStatus.png)
 
+## 6.5 *Other Endpoints*
+These endpoints will be added in the second part of the project:
+* Get Order Status Endpoint
+  * Accepts GET request to `/status`
+  * Accepts an order id and returns status.
+* Update Orders Status Endpoint
+  * Accepts PUT request to `/owner/:orderId` 
+  * Accepts data to update order including an order ID, and a new status. Returns an updated order.
+* Get Stock Endpoint
+  * Accepts GET request to `/owner/stock`
+  * Returns the list of ingredients with amounts
+* Update Stock Endpoint
+  * Accepts PUT request to `/owner/stock/ingredientId` 
+  * Accepts an ingredient id and new amount. Returns an updated pair ingredient and amount.
 
 # 7. Tables
 
-### 7.1 Order Table
-
-* OrderID 	// String - Primary
-
-* Name 		// String
-
-* Phone# 	// String
-
-* MenuItems 	// StringArray (ID of menu item)
-
-* Status 		// String
-
-* OrderDate 	// String - Sort
-
-* UpdatedDate 	// String
-### 7.2 Menu Table
-
-* ID 		// String - Primary
-
-* Name 		// String - Sort
-
-* Description 	// String
-
-* Category 	// String
-
-* Cost 		// Number
-
-* IngredientList // StringArray
-### 7.3 Ingredient Table
-
-* ID 		// String - Primary
-
-* Name 		// String - Sort
-
-* Description	// String
-
-* Stock 		// Number
-
-* Cost		// Number
-
+### 7.1 `Order` Table
+```
+OrderID 	// String - Primary
+Name 		// String
+Phone# 	        // String
+MenuItems 	// StringArray (ID of menu item)
+Status 		// String
+OrderDate 	// String - Sort
+UpdatedDate 	// String
+```
+### 7.2 `Menu` Table
+```
+ID 		// String - Primary
+Name 		// String - Sort
+Description 	// String
+Category 	// String
+Cost 		// Number
+IngredientList  // StringArray
+```
+### 7.3 `Ingredient` Table
+```
+ID 		// String - Primary
+Name 		// String - Sort
+Description	// String
+Stock 		// Number
+Cost		// Number
+```
 
 
 # 8. Pages
