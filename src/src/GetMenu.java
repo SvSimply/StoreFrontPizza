@@ -39,7 +39,6 @@ public class GetMenu {
         menu.put("MUSHROOM", 199);
         menu.put("LARGE COKE", 299);
         menu.put("MEDIUM COKE", 199);
-
     }
     /*
     this test will be updated later in the design, I cannot put a runtime error as of now because I think I need a
@@ -50,8 +49,8 @@ public class GetMenu {
     @Test (dataProviderClass = InvalidAttributeValueException.class)
     public void GetMenuTest(){
         if(menu.isEmpty()) {
-            fail("The menu is invalid, go back and check what has gone wrong");
+            fail("The menu is unpopulated.");
         }
-        System.out.println("Pass");
+        System.out.println("Menu is populated.");
     }
 }
