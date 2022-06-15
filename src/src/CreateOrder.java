@@ -1,5 +1,6 @@
 import java.util.Scanner;
-public class PriceCalculator {
+import java.io.PrintStream;
+public class CreateOrder {
     /*
      * keeps track of the price of the order.
      * I made the GetMenu class co-exist with this class, so I already have the hashmap store everything in the menu
@@ -16,6 +17,7 @@ public class PriceCalculator {
         Scanner scan = new Scanner(System.in);
         System.out.println("ENTER YOUR ORDER: ");
         String order = scan.nextLine().toUpperCase();
+        PrintStream O = new PrintStream(System.out);
         double price = 0;
         while(!order.equals("DONE")){
             if(GetMenu.menu.containsKey(order)){
@@ -26,7 +28,7 @@ public class PriceCalculator {
             System.out.println("ENTER YOUR ORDER: ");
             order = scan.nextLine().toUpperCase();
         }
-        System.out.println("YOUR ORDER IS: " + order);
+        System.out.println("YOUR ORDER IS: " + O);
         System.out.println("YOUR PRICE IS: $" + price/100);
         return price/100;
     }
