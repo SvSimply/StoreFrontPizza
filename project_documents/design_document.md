@@ -4,7 +4,7 @@
 
 
 
-~~## Store Front Design
+## Store Front Design
 
 ## 1. Problem Statement
 
@@ -187,32 +187,45 @@ These endpoints will be added in the second part of the project:
 
 # 7. Tables
 
-### 7.1 `Order` Table
+### 7.1 `Orders` Table
 ```
-OrderID 	// String - Primary
-Name 		// String
-Phone# 	        // String
-MenuItems 	// StringArray (ID of menu item)
-Status 		// String
-OrderDate 	// String - Sort
-UpdatedDate 	// String
+orderId 	// String - Primary
+name 		// String
+phone 	        // String
+menuItems 	// StringArray (ID of menu item)
+status 		// String
+total           // Number
+orderDate 	// String - Sort
+updatedDate 	// String
+```
+Command to create Orders table:
+```
+aws cloudformation create-stack --region us-west-2 --stack-name storefront-orderstable --template-body file://configurations/OrdersTable.yaml --capabilities CAPABILITY_IAM
 ```
 ### 7.2 `Menu` Table
 ```
-ID 		// String - Primary
-Name 		// String - Sort
-Description 	// String
-Category 	// String
-Cost 		// Number
-IngredientList  // StringArray
+itemId 		// String - Primary
+name 		// String - Sort
+description 	// String
+category 	// String
+cost 		// Number
+ingredients  // StringArray
 ```
-### 7.3 `Ingredient` Table
+Command to create Menu table:
 ```
-ID 		// String - Primary
-Name 		// String - Sort
-Description	// String
-Stock 		// Number
-Cost		// Number
+aws cloudformation create-stack --region us-west-2 --stack-name storefront-menutable --template-body file://configurations/MenuTable.yaml --capabilities CAPABILITY_IAM
+```
+### 7.3 `Ingredients` Table
+```
+itemId 		// String - Primary
+name 		// String - Sort
+description	// String
+stock 		// Number
+cost		// Number
+```
+Command to create Ingredients table:
+```
+aws cloudformation create-stack --region us-west-2 --stack-name storefront-ingredientstable --template-body file://configurations/IngredientsTable.yaml --capabilities CAPABILITY_IAM
 ```
 
 

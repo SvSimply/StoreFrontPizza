@@ -61,6 +61,7 @@ Resources:
                         phone: "1234567890" ,
                         menuItems: ["ljn643"],
                         status: "READY" ,
+                        total: 7.5,
                         orderDate: "2022-06-01T17:42:34Z",
                         updateDate: "2022-06-01T18:25:48Z"
                       }
@@ -74,6 +75,7 @@ Resources:
                         phone: "1234567890" ,
                         menuItems: ["ljn643", "ibr930", "ibr930"],
                         status: "READY" ,
+                        total: 24.5,
                         orderDate: "2022-06-03T17:42:34Z",
                         updateDate: "2022-06-03T18:25:48Z"
                       }
@@ -87,6 +89,7 @@ Resources:
                         phone: "0987654321" ,
                         menuItems: ["ljn643", "ibr930", "ibr930", "uge450"],
                         status: "READY" ,
+                        total: 32,
                         orderDate: "2022-05-03T17:42:34Z",
                         updateDate: "2022-05-03T18:25:48Z"
                       }
@@ -100,6 +103,7 @@ Resources:
                         phone: "0987654321" ,
                         menuItems: ["uge450"],
                         status: "IN_PROCESS" ,
+                        total: 7.5,
                         orderDate: "2022-05-01T15:42:34Z",
                         updateDate: "2022-05-01T16:25:48Z"
                       }
@@ -113,6 +117,7 @@ Resources:
                         phone: "1111122222" ,
                         menuItems: ["ljn643"],
                         status: "RECEIVED" ,
+                        total: 7.5,
                         orderDate: "2022-06-14T15:42:34Z",
                         updateDate: "2022-06-14T15:42:34Z"
                       }
