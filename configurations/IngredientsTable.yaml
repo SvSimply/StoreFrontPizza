@@ -59,7 +59,7 @@ Resources:
                         itemId: "ijh851" ,
                         name: "CRUST" ,
                         description: "Crust for pizza" ,
-                        stock:  30,
+                        stock:  30 ,
                         cost: 1
                       }
                     }
@@ -70,7 +70,7 @@ Resources:
                         itemId: "orc987",
                         name: "RED_SAUCE",
                         description: "Classic red sauce",
-                        stock: 10,
+                        stock: 10 ,
                         cost: 0.5
                       }
                     }
@@ -116,17 +116,6 @@ Resources:
                         description: "Pepperoni",
                         stock: 10,
                         cost: 1.5
-                      }
-                    }
-                  },
-                  {
-                    PutRequest: {
-                      Item: {
-                        itemId: "wmt209",
-                        name: "WHITE_SAUCE",
-                        description: "Creamy white sauce",
-                        stock: 10,
-                        cost: 0.5
                       }
                     }
                   },
@@ -223,7 +212,7 @@ Resources:
         Fn::GetAtt: [ LambdaRole , "Arn" ]
       # 2020-02-27: [bp] updated from nodejs10.x in case it matters
       Runtime: nodejs12.x
-      Timeout: 60
+      Timeout: 180
   InitializeEventsTable:
     Type: Custom::InitFunction
     DependsOn: IngredientsTable
