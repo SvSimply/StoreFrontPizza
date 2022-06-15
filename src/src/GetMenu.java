@@ -2,6 +2,7 @@ import org.testng.annotations.Test;
 
 import javax.management.InvalidAttributeValueException;
 import java.util.HashMap;
+import java.util.concurrent.TimeoutException;
 
 import static org.testng.AssertJUnit.fail;
 
@@ -44,7 +45,7 @@ public class GetMenu {
     this test will be updated later in the design, I cannot put a runtime error as of now because I think I need a
     front end set up for a timer. I can alternatively just put a for loop that counts to the minute then automatically
     have the exception thrown, That would be too "Sloppy" for me. So instead I just have the test basically equal null,
-    as in if there is no first parameter then it will throw a AttributeValueException.
+    as in if there is no first parameter then it will throw a AttributeValueException for obvious reasons.
      */
     @Test (dataProviderClass = InvalidAttributeValueException.class)
     public void GetMenuTest(){
@@ -53,4 +54,8 @@ public class GetMenu {
         }
         System.out.println("Menu is populated.");
     }
+    /*
+    I have decided not to add a time-out exception because It would be sort of pointless as of right now. I can always add
+    the timeout exception later in development.
+     */
 }
