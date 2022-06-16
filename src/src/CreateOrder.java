@@ -1,4 +1,15 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
+
+import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.fail;
+
 public class CreateOrder {
     /*
      * keeps track of the price of the order.
@@ -16,14 +27,14 @@ public class CreateOrder {
      * for the test's that I will write I will make sure that the order is printed with actual menu items and that the
      * price will not be 0 or anything funky.
      */
-    public static double CreateOrder(){
+    public static double CreateOrder() {
         Scanner scan = new Scanner(System.in);
         System.out.println("ENTER YOUR ORDER: ");
         String order = scan.nextLine().toUpperCase();
         String userOrder = "";
         double price = 0;
-        while(!order.equals("DONE")){
-            if(GetMenu.menu.containsKey(order)){
+        while (!order.equals("DONE")) {
+            if (GetMenu.menu.containsKey(order)) {
                 userOrder += order + " ";
                 price += GetMenu.menu.get(order);
             } else {
@@ -33,7 +44,30 @@ public class CreateOrder {
             order = scan.nextLine().toUpperCase();
         }
         System.out.println("YOUR ORDER IS: " + userOrder);
-        System.out.println("YOUR PRICE IS: $" + price/100);
-        return price/100;
+        System.out.println("YOUR PRICE IS: $" + price / 100);
+        return price / 100;
+    }
+
+    @Test
+    public void validUserInput_ShouldResultInExpectedOutput() {
+        String userInput = String.format("large pepperoni pizza",
+                System.lineSeparator(),
+                System.lineSeparator());
+        ByteArrayInputStream bais = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(bais);
+
+        String expected = "large pepperoni pizza";
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        System.setOut(printStream);
+
+        Main.main(null);
+
+        String[] lines = baos.toString().split(System.lineSeparator());
+        String actual = lines[lines.length-1];
+
+
+        Assert.assertEquals(expected,actual);
     }
 }
+
