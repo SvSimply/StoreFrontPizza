@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.io.PrintStream;
 public class CreateOrder {
     /*
      * keeps track of the price of the order.
