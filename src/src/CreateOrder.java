@@ -1,8 +1,3 @@
-import java.util.Scanner;
-
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.fail;
-
 public class CreateOrder {
     /*
      * keeps track of the price of the order.
@@ -20,26 +15,26 @@ public class CreateOrder {
      * for the test's that I will write I will make sure that the order is printed with actual menu items and that the
      * price will not be 0 or anything funky.
      */
-    public static double CreateOrder() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("ENTER YOUR ORDER: ");
-        String order = scan.nextLine().toUpperCase();
-        String userOrder = "";
-        double price = 0;
-        while (!order.equals("DONE")) {
-            if (Menu.menu.containsKey(order)) {
-                userOrder += order + ", ";
-                price += Menu.menu.get(order);
-            } else {
-                System.out.println("THIS ITEM IS NOT ON THE MENU.");
-            }
-            System.out.println("ENTER YOUR ORDER: ");
-            order = scan.nextLine().toUpperCase();
-        }
-        System.out.println("YOUR ORDER IS: " + userOrder);
-        System.out.println("YOUR PRICE IS: $" + price / 100);
-        return price / 100;
-    }
+//    public static double CreateOrder() {
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("ENTER YOUR ORDER: ");
+//        String order = scan.nextLine().toUpperCase();
+//        String userOrder = "";
+//        double price = 0;
+//        while (!order.equals("DONE")) {
+//            if (Menu.menu.containsKey(order)) {
+//                userOrder += order + ", ";
+//                price += Menu.menu.get(order);
+//            } else {
+//                System.out.println("THIS ITEM IS NOT ON THE MENU.");
+//            }
+//            System.out.println("ENTER YOUR ORDER: ");
+//            order = scan.nextLine().toUpperCase();
+//        }
+//        System.out.println("YOUR ORDER IS: " + userOrder);
+//        System.out.println("YOUR PRICE IS: $" + price / 100);
+//        return price / 100;
+//    }
 
 
 }
