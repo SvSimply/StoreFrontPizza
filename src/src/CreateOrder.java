@@ -1,10 +1,3 @@
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.Scanner;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -34,9 +27,9 @@ public class CreateOrder {
         String userOrder = "";
         double price = 0;
         while (!order.equals("DONE")) {
-            if (GetMenu.menu.containsKey(order)) {
+            if (Menu.menu.containsKey(order)) {
                 userOrder += order + ", ";
-                price += GetMenu.menu.get(order);
+                price += Menu.menu.get(order);
             } else {
                 System.out.println("THIS ITEM IS NOT ON THE MENU.");
             }

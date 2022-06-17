@@ -1,10 +1,13 @@
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import org.testng.annotations.Test;
 
 import javax.management.InvalidAttributeValueException;
 import java.util.HashMap;
 import static org.testng.AssertJUnit.fail;
 
-public class GetMenu {
+@DynamoDBTable(tableName = "Menu")
+public class Menu {
     /*
     * the menu class with the different types of pizzas we serve.
 
@@ -39,6 +42,16 @@ public class GetMenu {
         menu.put("LARGE COKE", 299);
         menu.put("MEDIUM COKE", 199);
     }
+
+
+    @DynamoDBAttribute(attributeName = "menu")
+    public HashMap<String, Integer> getMenu() {
+        return Menu.menu;
+    }
+
+
+
+
     /*
     this test will be updated later in the design, I cannot put a runtime error as of now because I think I need a
     front end set up for a timer. I can alternatively just put a for loop that counts to the minute then automatically
