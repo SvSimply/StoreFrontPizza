@@ -1,12 +1,11 @@
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 import javax.management.InvalidAttributeValueException;
 import java.util.HashMap;
-import static org.testng.AssertJUnit.fail;
 
-@DynamoDBTable(tableName = "Menu")
+import static org.testng.AssertJUnit.fail;
 public class Menu {
     /*
     * the menu class with the different types of pizzas we serve.
@@ -43,15 +42,6 @@ public class Menu {
         menu.put("MEDIUM COKE", 199);
     }
 
-
-    @DynamoDBAttribute(attributeName = "menu")
-    public HashMap<String, Integer> getMenu() {
-        return Menu.menu;
-    }
-
-
-
-
     /*
     this test will be updated later in the design, I cannot put a runtime error as of now because I think I need a
     front end set up for a timer. I can alternatively just put a for loop that counts to the minute then automatically
@@ -69,4 +59,18 @@ public class Menu {
     I have decided not to add a time-out exception because It would be sort of pointless as of right now. I can always add
     the timeout exception later in development.
      */
+
+    private final Logger log = LogManager.getLogger();
+
+    private final MenuDao menuDao;
+
+    public Menu(MenuDao menuDao){this.menuDao = menuDao;}
+    
+    public GetMenuResult handleRequest(final GetMenuRequest getMenuRequest) throws MenuDao.MenuNotFoundException {
+        log.info("Received GetPlaylistRequest {}", getMenuRequest);
+        String requestedId = getMenuRequest.getId();
+        Menu menu = menuDao.getMenu(requestedId);
+        return GetMenuResult.builder()
+                .build();
+    }
 }

@@ -10,11 +10,11 @@ public class MenuDao {
     DynamoDBMapper mapper = new DynamoDBMapper(dynamoDBClient);
 
     private final DynamoDBMapper dynamoDbMapper;
-    private final MenuDao menuDao;
 
-    public MenuDao(DynamoDBMapper dynamoDbMapper, MenuDao menuDao) {
+
+    public MenuDao(DynamoDBMapper dynamoDbMapper) {
         this.dynamoDbMapper = dynamoDbMapper;
-        this.menuDao = menuDao;
+
     }
 
     public Menu getMenu(String id) throws MenuNotFoundException {
@@ -28,10 +28,11 @@ public class MenuDao {
     }
 
 
-    private class MenuNotFoundException extends Throwable {
+    class MenuNotFoundException extends Throwable {
         public MenuNotFoundException(String s) {
         }
     }
+
 
     AmazonDynamoDB dynamoDB = AmazonDynamoDBClientBuilder.standard()
             .withRegion(Regions.US_WEST_2)
