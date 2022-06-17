@@ -2,7 +2,6 @@ import org.testng.annotations.Test;
 
 import javax.management.InvalidAttributeValueException;
 import java.util.HashMap;
-
 import static org.testng.AssertJUnit.fail;
 
 public class GetMenu {

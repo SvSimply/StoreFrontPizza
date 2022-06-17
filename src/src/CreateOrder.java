@@ -35,7 +35,7 @@ public class CreateOrder {
         double price = 0;
         while (!order.equals("DONE")) {
             if (GetMenu.menu.containsKey(order)) {
-                userOrder += order + " ";
+                userOrder += order + ", ";
                 price += GetMenu.menu.get(order);
             } else {
                 System.out.println("THIS ITEM IS NOT ON THE MENU.");
@@ -48,26 +48,6 @@ public class CreateOrder {
         return price / 100;
     }
 
-    @Test
-    public void validUserInput_ShouldResultInExpectedOutput() {
-        String userInput = String.format("large pepperoni pizza",
-                System.lineSeparator(),
-                System.lineSeparator());
-        ByteArrayInputStream bais = new ByteArrayInputStream(userInput.getBytes());
-        System.setIn(bais);
 
-        String expected = "large pepperoni pizza";
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(baos);
-        System.setOut(printStream);
-
-        Main.main(null);
-
-        String[] lines = baos.toString().split(System.lineSeparator());
-        String actual = lines[lines.length-1];
-
-
-        Assert.assertEquals(expected,actual);
-    }
 }
 
