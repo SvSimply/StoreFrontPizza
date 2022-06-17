@@ -11,6 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/UnitProject.test.iml" filepath="$PROJECT_DIR$/.idea/modules/UnitProject.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/bd-team-project-store-front-bd5.iml" filepath="$PROJECT_DIR$/.idea/bd-team-project-store-front-bd5.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/src.iml" filepath="$PROJECT_DIR$/src/src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/template_java_project.UnitProject.main.iml" filepath="$PROJECT_DIR$/.idea/modules/template_java_project.UnitProject.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/template_java_project.UnitProject.test.iml" filepath="$PROJECT_DIR$/.idea/modules/template_java_project.UnitProject.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/tst/tst.iml" filepath="$PROJECT_DIR$/tst/tst.iml" />
     </modules>
   </component>
