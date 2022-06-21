@@ -1,3 +1,65 @@
+/*Index.html*/
+html, body, #root {
+  height: 100%
+}
+
+/*App*/
+#MenuAppDiv {
+  height: 100%;
+}
+
+/*Menu*/
+#MenuPageDiv {
+  min-height: 80%;
+  text-align: center;
+}
+
+#MenuTileGrid {
+  display: grid;
+  grid-gap: 15px;
+  margin-left: 5%;
+  margin-right: 5%;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/*MenuTile*/
+
+#Tile {
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+  padding-right: 100px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  border: 1px solid black;
+  background-image: url("TempPizzaBackground.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  background-color: rgb(221, 221, 221);
+  text-align: center;
+}
+
+#TileInputField {
+  width: 30px;
+}
+
+/*Header*/
+#Header {
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+/*Footer*/
+#Footer {
+  border-top: 1px solid black;
+  margin-top: 20px;
+}
+
+/*Unsorted*/
 #container {
   grid-template-columns: [empty] 20% [col-1] 1fr [col-2] 1fr [col-3] 1fr [empty2] 20%;
   grid-template-rows: auto;
@@ -11,6 +73,7 @@
     "lPanel footer footer footer .";
   margin: auto;
   text-align: center;
+  min-height: 85%;
 }
 
 #specialsContainer {
