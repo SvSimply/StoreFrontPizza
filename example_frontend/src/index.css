@@ -1,0 +1,60 @@
+/*Index.html css*/
+html, body, #root {
+  height: 100%
+}
+
+/*App CSS*/
+#MenuAppDiv {
+  height: 100%;
+}
+
+/*Menu CSS*/
+#MenuPageDiv {
+  min-height: 80%;
+  text-align: center;
+}
+
+#MenuTileGrid {
+  display: grid;
+  grid-gap: 15px;
+  margin-left: 5%;
+  margin-right: 5%;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/*MenuTile CSS*/
+
+#Tile {
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+  padding-right: 100px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  border: 1px solid black;
+  background-image: url("TempPizzaBackground.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  background-color: rgb(221, 221, 221);
+  text-align: center;
+}
+
+#TileInputField {
+  width: 30px;
+}
+
+/*Header CSS*/
+#Header {
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+/*Footer CSS*/
+#Footer {
+  border-top: 1px solid black;
+  margin-top: 20px;
+}
