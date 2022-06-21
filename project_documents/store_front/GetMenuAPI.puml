@@ -1,0 +1,14 @@
+@startuml
+actor Client #blue
+participant "GetRequest to order"
+participant "GetMenuActivity"
+database DynamoDB #green
+
+Client -[#blue]>> "GetRequest to order" : access to website
+
+"GetRequest to order" ->> "GetMenuActivity"  : request to show menu
+
+"GetMenuActivity" ->> "DynamoDB" : Access to DynamoDB
+
+DynamoDB -[#green]>> Client : returns menu to client
+@enduml

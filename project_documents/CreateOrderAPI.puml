@@ -1,0 +1,14 @@
+@startuml
+actor Client #blue
+participant "AcceptsPostRequestForCheckout"
+participant "CreateOrder"
+database DynamoDB #green
+
+Client -[#blue]>> "AcceptsPostRequestForCheckout" : Customer is ready to checkout
+
+"AcceptsPostRequestForCheckout" ->> "CreateOrder"  : request to Checkout
+
+"CreateOrder" ->> "DynamoDB" : Access to DynamoDB
+
+DynamoDB -[#green]>> Client : returns message confirming checkout
+@enduml

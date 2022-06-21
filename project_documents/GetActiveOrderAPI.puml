@@ -1,0 +1,14 @@
+@startuml
+actor Client #blue
+participant "GetRequestToStatus"
+participant "GetOrderStatus"
+database DynamoDB #green
+
+Client -[#blue]>> "GetRequestToStatus" : Customer check status of order
+
+"GetRequestToStatus" ->> "GetOrderStatus"  : request updated order status
+
+"GetOrderStatus" ->> "DynamoDB" : Access to DynamoDB
+
+DynamoDB -[#green]>> Client : returns message confirming new status
+@enduml
