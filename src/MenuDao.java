@@ -2,11 +2,15 @@
 //import com.amazonaws.auth.BasicAWSCredentials;
 //import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 //import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+import dynamodb.MenuDB;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.ArrayList;
 
 public class MenuDao {
     AmazonDynamoDB dynamoDBClient;
@@ -20,15 +24,16 @@ public class MenuDao {
 
     }
 
-    public dynamodb.Menu getMenu(String itemId) throws MenuNotFoundException {
-        log.fatal("Received item Id {}", itemId);
-        dynamodb.Menu menu = this.dynamoDbMapper.load(dynamodb.Menu.class, itemId, "Margherita Pizza");
+    public PaginatedScanList<MenuDB> getMenu() throws MenuNotFoundException {
+        log.fatal("Received item Id {}", "menu");
+//        MenuDB menu = this.dynamoDbMapper.load(MenuDB.class, itemId, "Margherita Pizza");
+        PaginatedScanList<MenuDB> menuList = this.dynamoDbMapper.scan(MenuDB.class, new DynamoDBScanExpression());
 
-        if (menu == null) {
+        if (menuList == null) {
             throw new MenuNotFoundException("Cannot find the correct menu" + null);
         }
 
-        return menu;
+        return menuList;
     }
 
 

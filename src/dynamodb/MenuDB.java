@@ -8,7 +8,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import java.util.ArrayList;
 
 @DynamoDBTable(tableName = "Menu")
-public class Menu {
+public class MenuDB {
     private String itemId;
     private String name;
     private String description;

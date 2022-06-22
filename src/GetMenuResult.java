@@ -1,19 +1,27 @@
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+import dynamodb.MenuDB;
 
 public class GetMenuResult {
-    private MenuModel menu;
+    private PaginatedScanList<MenuDB> menu;
+
     public GetMenuResult(Builder builder) {
         this.menu = builder.menu;
     }
-    public MenuModel getMenu() {
+
+    public PaginatedScanList<MenuDB> getMenu() {
         return menu;
     }
-    public void setMenu(MenuModel playlist) {
+
+    public void setMenu(PaginatedScanList<MenuDB> playlist) {
         this.menu = playlist;
     }
+
     public static Builder builder() {return new Builder();}
+
     public static final class Builder {
-        private MenuModel menu;
-        public Builder withMenu(MenuModel menuToUse) {
+        private PaginatedScanList<MenuDB> menu;
+
+        public Builder withMenu(PaginatedScanList<MenuDB> menuToUse) {
             this.menu = menuToUse;
             return this;
         }
