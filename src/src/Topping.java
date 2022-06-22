@@ -1,3 +1,0 @@
-public class Topping {
-    // the toppings for the pizza pepperoni, sausage, etc...
-}
