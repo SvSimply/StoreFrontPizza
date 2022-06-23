@@ -1,9 +1,8 @@
-import Exceptions.MenuNotFoundException;
+import Exceptions.OrderNotFoundException;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-public class GetMenuActivityProvider implements RequestHandler<GetMenuRequest, GetMenuResult> {
-
+public class GetOrdersActivityProvider implements RequestHandler<GetOrdersRequest, GetOrdersResult> {
 
     private static App app;
 
@@ -16,18 +15,20 @@ public class GetMenuActivityProvider implements RequestHandler<GetMenuRequest, G
     }
 
     @Override
-    public GetMenuResult handleRequest(final GetMenuRequest getMenuRequest, Context context) {
+    public GetOrdersResult handleRequest(final GetOrdersRequest getOrdersRequest, Context context){
 //        AmazonDynamoDBClientBuilder a = AmazonDynamoDBClientBuilder.standard();
 //        a.setRegion(Regions.US_WEST_2.getName());
 //        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient(Regions.US_WEST_2));
-//        MenuDao menuDao = new MenuDao(mapper);
-//        Menu menuActivity = new Menu(menuDao);
+//        GetOrdersDao ordersDao = new GetOrdersDao(mapper);
+//        GetOrdersActivity ordersActivity = new GetOrdersActivity(ordersDao);
 
         try {
-            return getApp().provideMenu().handleRequest(getMenuRequest, context);
-        } catch (MenuNotFoundException e) {
+            return getApp().provideGetOrdersActivity().handleRequest(getOrdersRequest, context);
+        } catch (OrderNotFoundException e) {
             e.printStackTrace();
         }
+
+
 
         return null;
     }
