@@ -1,16 +1,14 @@
 //import com.amazonaws.auth.AWSStaticCredentialsProvider;
 //import com.amazonaws.auth.BasicAWSCredentials;
 //import com.amazonaws.regions.Regions;
+
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-//import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import dynamodb.MenuDB;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.ArrayList;
 
 public class MenuDao {
     AmazonDynamoDB dynamoDBClient;
@@ -40,6 +38,11 @@ public class MenuDao {
     class MenuNotFoundException extends Throwable {
         public MenuNotFoundException(String s) {
         }
+    }
+
+    public MenuDB saveOrder(MenuDB menu){
+        dynamoDbMapper.save(menu);
+        return menu;
     }
 
 
