@@ -7,6 +7,8 @@ Resources:
           "AttributeType": "S"
         - "AttributeName": "orderDate"
           "AttributeType": "S"
+        - "AttributeName": "status"
+          "AttributeType": "S"
       "KeySchema":
         - "AttributeName": "orderId"
           "KeyType": "HASH"
@@ -14,6 +16,13 @@ Resources:
           "KeyType": "RANGE"
       BillingMode: PAY_PER_REQUEST
       TableName: "Orders"
+      GlobalSecondaryIndexes:
+        - IndexName: "StatusIndex"
+          KeySchema:
+            - AttributeName: "status"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: ALL
   LambdaRole:
     Type: AWS::IAM::Role
     Properties:
