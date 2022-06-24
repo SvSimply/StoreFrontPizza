@@ -72,7 +72,7 @@ public class Order {
         this.total = total;
     }
 
-    @DynamoDBRangeKey(attributeName = "orderDate")
+    @DynamoDBAttribute(attributeName = "orderDate")
     public String getOrderDate() {
         return orderDate;
     }

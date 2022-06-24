@@ -18,6 +18,10 @@ public class App {
         return new MenuDao(provideDynamoDBMapper());
     }
 
+    private UpdateOrderDao provideUpdateOrdersDao() {
+        return new UpdateOrderDao(provideDynamoDBMapper());
+    }
+
 //    private GetIngredients provideGetIngredients() {
 //        return new GetIngredients(provideDynamoDBMapper());
 //    }
@@ -27,6 +31,10 @@ public class App {
 
     public Menu provideMenu() {
         return new Menu(provideMenuDao());
+    }
+
+    public UpdateOrderActivity provideUpdateOrdersActivity() {
+        return new UpdateOrderActivity(provideUpdateOrdersDao());
     }
 
 
