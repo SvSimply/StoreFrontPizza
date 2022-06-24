@@ -5,13 +5,9 @@ Resources:
       "AttributeDefinitions":
         - "AttributeName": "orderId"
           "AttributeType": "S"
-        - "AttributeName": "orderDate"
-          "AttributeType": "S"
       "KeySchema":
         - "AttributeName": "orderId"
           "KeyType": "HASH"
-        - "AttributeName": "orderDate"
-          "KeyType": "RANGE"
       BillingMode: PAY_PER_REQUEST
       TableName: "Orders"
   LambdaRole:
