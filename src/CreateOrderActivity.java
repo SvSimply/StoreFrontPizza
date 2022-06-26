@@ -20,7 +20,7 @@ public class CreateOrderActivity implements RequestHandler<CreateOrderRequest, C
         this.MenuDao = MenuDao;
     }
 
-    @Override
+
     public CreateOrderResult handleRequest(final CreateOrderRequest createOrderRequest, Context context) throws InvalidAttributeValueException {
         log.info("Received CreateOrderRequest {}", createOrderRequest);
         if(!PizzaOrderServiceUtils.isValidString(createOrderRequest.getName())) {
@@ -43,5 +43,10 @@ public class CreateOrderActivity implements RequestHandler<CreateOrderRequest, C
         return CreateOrderResult.builder()
                 .withOrder(new ModelConverter().toMenuModel(menu))
                 .build();
+    }
+
+    @Override
+    public CreateOrderResult handleRequest(CreateOrderRequest input, com.amazonaws.services.lambda.runtime.Context context) {
+        return null;
     }
 }

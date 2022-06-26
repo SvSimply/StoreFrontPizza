@@ -15,15 +15,25 @@ public class GetOrderActivity implements RequestHandler<GetOrderRequest, GetOrde
         this.menuDao = menuDao;
     }
 
+
     public GetOrderResult handleRequest(final GetOrderRequest getOrderRequest, Context context) {
 
         log.info("Received GetOrderRequest {}", getOrderRequest);
         String requestedItemId = getOrderRequest.getItemId();
-        MenuDB menu = menuDao.getMenu(requestedItemId);
-        MenuModel menuModel = new ModelConverter().toMenuModel(menu);
+        try {
+            MenuDB menu = menuDao.getMenu().get(0);
+            MenuModel menuModel = new ModelConverter().toMenuModel(menu);
 
-        return GetOrderResult.builder()
-                .withMenu(menuModel)
-                .build();
+            return GetOrderResult.builder()
+                    .withMenu(menuModel)
+                    .build();
+        } catch (Exception | MenuDao.MenuNotFoundException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public GetOrderResult handleRequest(GetOrderRequest input, com.amazonaws.services.lambda.runtime.Context context) {
+        return null;
     }
 }
