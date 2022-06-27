@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 @DynamoDBTable(tableName = "Orders")
 public class Order {
+    public static final String STATUS_INDEX = "StatusIndex";
     private String orderId;
     private String customerName;
     private String customerPhone;
@@ -54,7 +55,8 @@ public class Order {
         this.menuItems = menuItems;
     }
 
-    @DynamoDBAttribute(attributeName = "status")
+    @DynamoDBIndexHashKey(attributeName = "status", globalSecondaryIndexName = STATUS_INDEX)
+//    @DynamoDBAttribute(attributeName = "status")
     public String getStatus() {
         return status;
     }

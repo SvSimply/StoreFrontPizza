@@ -22,7 +22,7 @@ public class Ingredient {
         this.itemId = itemId;
     }
 
-    @DynamoDBRangeKey(attributeName = "name")
+    @DynamoDBAttribute(attributeName = "name")
     public String getName() {
         return name;
     }
