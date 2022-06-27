@@ -22,6 +22,11 @@ public class App {
         return new UpdateOrderDao(provideDynamoDBMapper());
     }
 
+    private GetOrderByIdDao provideGetOrderByIdDao(){
+        return new GetOrderByIdDao(provideDynamoDBMapper());
+    }
+
+
 //    private GetIngredients provideGetIngredients() {
 //        return new GetIngredients(provideDynamoDBMapper());
 //    }
@@ -35,6 +40,10 @@ public class App {
 
     public UpdateOrderActivity provideUpdateOrdersActivity() {
         return new UpdateOrderActivity(provideUpdateOrdersDao());
+    }
+
+    public GetOrderByIdActivity provideGetOrderByIdActivity() {
+        return new GetOrderByIdActivity(provideUpdateOrdersDao());
     }
 
 
