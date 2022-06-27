@@ -1,0 +1,131 @@
+#container {
+  grid-template-columns: [empty] 20% [col-1] 1fr [col-2] 1fr [col-3] 1fr [empty2] 20%;
+  grid-template-rows: auto;
+  display: grid;
+  grid-template-areas:
+    "header header header header header"
+    "tag tag tag tag tag"
+    "lPanel button1 image button2 ."
+    "lPanel spHead spHead spHead ."
+    "lPanel specials specials specials ."
+    "lPanel footer footer footer .";
+  margin: auto;
+  text-align: center;
+}
+
+#specialsContainer {
+  grid-template-columns: [col-1] 1fr [col-2] 1fr [col-3] 1fr;
+  grid-template-rows: auto;
+  margin: 0 auto;
+  display: grid;
+  grid-area: specials;
+  grid-template-areas:
+    "special1 special2 special3"
+    "special4 special5 special6";
+  text-align: center;
+}
+#heading {
+  grid-area: header;
+}
+#header {
+  grid-area: header;
+  font-family: "Italiana", serif;
+  font-style: oblique;
+  font-weight: 800;
+  background-color: rgba(220, 107, 41, 0.6);
+  color: white;
+  font-size: 48px;
+  text-align: center;
+  box-shadow: 15px;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0px 2px 16px 0px rgba(220, 107, 41, 0.8);
+  box-shadow: 0px 2px 16px 0px rgba(220, 107, 41, 0.8);
+}
+
+.tagline {
+  grid-area: tag;
+  background-color: rgba(243, 198, 129, 1);
+  border-bottom: 12px;
+  font-size: 32px;
+  font-family: "Italiana", serif;
+  -webkit-box-shadow: 0px 2px 16px 0px rgba(243, 198, 129, 1);
+  box-shadow: 0px 2px 16px 0px rgba(243, 198, 129, 1);
+}
+
+.button {
+  font-family: "Bona Nova", serif;
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  font-size: 32px;
+  border-radius: 12px;
+  color: white;
+  border-width: 0px;
+  border-radius: 12px;
+  border-color: rgba(243, 198, 129, 1);
+  background-color: rgba(220, 107, 41, 0.9);
+
+  transition: all 200ms ease-in-out;
+}
+
+#button1 {
+  grid-area: button1;
+}
+#button1:hover {
+  grid-area: button1;
+  background-color: rgba(220, 107, 41, 0.85);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(220, 107, 41, 0.8);
+  box-shadow: 0px 1px 8px 0px rgba(220, 107, 41, 0.8);
+}
+#button2 {
+  grid-area: button2;
+}
+#button2:hover {
+  grid-area: button2;
+  background-color: rgba(220, 107, 41, 0.85);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(220, 107, 41, 0.8);
+  box-shadow: 0px 1px 8px 0px rgba(220, 107, 41, 0.8);
+}
+
+.spHeader {
+  padding-top: 5%;
+  font-family: "Bona Nova", serif;
+  grid-area: spHead;
+  font-size: 50px;
+  padding-bottom: 25px;
+}
+
+#affiliate {
+  grid-area: footer;
+}
+
+img.headerImg {
+  margin-right: 5px;
+  max-width: 55px;
+}
+
+img.icon {
+  grid-area: image;
+  max-width: 500px;
+  margin-left: 50px;
+}
+
+img.specials {
+  justify-self: center;
+  align-self: center;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200;
+  min-height: 200;
+  margin: 5px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 5%;
+}
+
+.sidepanel {
+  grid-area: lPanel;
+  justify-self: stretch;
+  padding-top: 200px;
+}

@@ -1,8 +1,17 @@
-const Header = () => {
+const Header = ({ msg }) => {
   return (
     <header>
-      <h1 id='Header'>Jimbo's Pizzeria</h1>
+      <img
+        class="headerImg"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDxhPSjsYZ-Qa4BXeBurOENHdEV_WWKGSUSCHoynl_PPL-SF5monbEYdlAhXa0_V88wg&usqp=CAU"
+      />
+      {msg}{" "}
     </header>
-  )
-}
-export default Header
+  );
+};
+
+Header.defaultProps = {
+  msg: "Jimbo's Pizzeria",
+};
+
+export default Header;
