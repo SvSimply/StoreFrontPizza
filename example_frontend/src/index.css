@@ -7,6 +7,27 @@ html, body, #root {
 #MenuAppDiv {
   height: 100%;
 }
+/*Checkout*/
+#Checkout {
+  min-height: 80%;
+  text-align: center;
+}
+
+/*CheckoutTile*/
+#CheckoutTile {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-radius: 10px;
+  background-color: rgb(221, 221, 221);
+}
+
+#Pizza {
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
 
 /*Menu*/
 #MenuPageDiv {
@@ -54,10 +75,6 @@ html, body, #root {
   border-bottom: 1px solid black;
   margin-bottom: 5px;
   padding-bottom: 5px;
-}
-
-#Checkout {
-  text-align: right;
 }
 
 /*Footer*/

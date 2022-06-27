@@ -2,7 +2,7 @@ import MenuTile from "./MenuTile"
 import axios from "axios"
 import { Component } from "react";
 
-class Menu extends Component {
+class Menu extends Component () {
 
   state = {
     pizzas: []
