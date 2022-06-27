@@ -2,10 +2,6 @@ import MenuTile from "./MenuTile"
 import axios from "axios"
 import { Component } from "react";
 
-const api = axios.create({
-  baseURL: 'https://7fy93af9yj.execute-api.us-west-2.amazonaws.com/Test/getmenu/order'
-})
-
 class Menu extends Component {
 
   state = {
@@ -14,8 +10,8 @@ class Menu extends Component {
 
   constructor() {
     super();
-    api.get('/').then(res => {
-      this.setState({ pizzas: res.data})
+    axios.get('https://7fy93af9yj.execute-api.us-west-2.amazonaws.com/Test/getmenu/order').then(res => {
+      this.setState({ pizzas: res.data.menu})
     })
   }
 
@@ -24,7 +20,14 @@ class Menu extends Component {
       <div id='MenuPageDiv'>
           <h1>Our Menu</h1>
           <div id='MenuTileGrid'> 
-            {this.state.pizzas.map(pizzas => <MenuTile NameOfPizza={pizzas.name} Cost={pizzas.cost} Description={pizzas.description}/>)}
+
+            {this.state.pizzas.map(pizzas => <MenuTile 
+              NameOfPizza={pizzas.name} 
+              Cost={pizzas.cost} 
+              Description={pizzas.description} 
+              ItemId={pizzas.itemId}
+            />)}
+
           </div>
       </div>
     )

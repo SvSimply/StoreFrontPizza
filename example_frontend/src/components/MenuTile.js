@@ -1,6 +1,6 @@
 import React from "react";
 
-const MenuTile = ({NameOfPizza, Cost, Description}) => {
+const MenuTile = ({NameOfPizza, Cost, Description, ItemId}) => {
   return (
     <div id='Tile'>
         <div><span id='TileText'>{NameOfPizza}</span></div>
@@ -8,16 +8,7 @@ const MenuTile = ({NameOfPizza, Cost, Description}) => {
             <span id='TileText'>Cost: ${Cost}</span>
         </div>
         <div>
-            <span id='TileText'>Size:</span>
-            <select>
-                <option>Large</option>
-                <option>Medium</option>
-                <option>Small</option>
-            </select>
-        </div>
-        <div>
-            <button>Add To Order</button>
-            <input type='number' max='5' id='TileInputField'></input>
+            <button onClick={console.log(ItemId)}>Add To Order</button>
         </div>
         <div>
             <span id='TileText'>{Description}</span>

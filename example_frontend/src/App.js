@@ -3,6 +3,7 @@ import Menu1 from './components/MenuPage'
 import Footer from './components/Footer'
 
 const App = () => {
+  
   return (
     <div id='MenuAppDiv'>
       <Header />

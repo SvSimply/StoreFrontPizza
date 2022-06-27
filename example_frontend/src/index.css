@@ -40,7 +40,7 @@ html, body, #root {
 }
 
 #TileText {
-  background-color: rgba(189, 189, 189, 0.418);
+  background-color: rgba(214, 214, 214, 0.466);
   border-radius: 10px;
 }
 
@@ -54,6 +54,10 @@ html, body, #root {
   border-bottom: 1px solid black;
   margin-bottom: 5px;
   padding-bottom: 5px;
+}
+
+#Checkout {
+  text-align: right;
 }
 
 /*Footer*/
