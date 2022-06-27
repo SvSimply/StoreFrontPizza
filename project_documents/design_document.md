@@ -202,6 +202,10 @@ Command to create Orders table:
 ```
 aws cloudformation create-stack --region us-west-2 --stack-name storefront-orderstable --template-body file://configurations/OrdersTable.yaml --capabilities CAPABILITY_IAM
 ```
+Command to update Orders table:
+```
+aws cloudformation update-stack --region us-west-2 --stack-name storefront-orderstable --template-body file://configurations/OrdersTable.yaml --capabilities CAPABILITY_IAM
+```
 ### 7.2 `Menu` Table
 ```
 itemId 		// String - Primary

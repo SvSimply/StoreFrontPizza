@@ -2,6 +2,8 @@
 //import com.amazonaws.auth.BasicAWSCredentials;
 //import com.amazonaws.regions.Regions;
 
+import Exceptions.MenuNotFoundException;
+
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
@@ -35,10 +37,7 @@ public class MenuDao {
     }
 
 
-    class MenuNotFoundException extends Throwable {
-        public MenuNotFoundException(String s) {
-        }
-    }
+
 
     public MenuDB saveOrder(MenuDB menu){
         dynamoDbMapper.save(menu);

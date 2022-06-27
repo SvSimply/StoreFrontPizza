@@ -12,8 +12,8 @@ public class GetMenuResult {
         return menu;
     }
 
-    public void setMenu(PaginatedScanList<MenuDB> playlist) {
-        this.menu = playlist;
+    public void setMenu(PaginatedScanList<MenuDB> menu) {
+        this.menu = menu;
     }
 
     public static Builder builder() {return new Builder();}
