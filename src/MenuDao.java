@@ -3,6 +3,7 @@
 //import com.amazonaws.regions.Regions;
 
 import Exceptions.MenuNotFoundException;
+
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
@@ -37,6 +38,11 @@ public class MenuDao {
 
 
 
+
+    public MenuDB saveOrder(MenuDB menu){
+        dynamoDbMapper.save(menu);
+        return menu;
+    }
 
 
 //    AmazonDynamoDB dynamoDB = AmazonDynamoDBClientBuilder.standard()
