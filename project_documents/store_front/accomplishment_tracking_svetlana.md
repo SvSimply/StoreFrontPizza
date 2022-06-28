@@ -1,4 +1,4 @@
-# [Your Name] - Store Front Accomplishment Tracking
+# Svetlana Baranova - Store Front Accomplishment Tracking
 
 Each team member should have their own version of this document.
 
@@ -37,39 +37,55 @@ instructors by the end of the unit._
 ## Week 1
 
 **Goals:**
+My goal was to set up a common ground for the team. Then brainstorm and write the design document altogether. I wanted everyone on the same page for the design so that the collaboration could go smoothly.
 
 **Activity:**
+Meeting for writing docs.
 
 **Important Docs, Commits, or Code Reviews**:
+Design doc, Team charter.
 
 **Things learned:**
+How to better collaborate with these particular people.
 
 ## Week 2
 
 **Goals:**
+The goal was to have one working feature. I was working with the DynamoDB part.
 
 **Activity:**
+Setting up DynamoDB tables, writing .yaml files, fixing dependency in the dagger.
 
 **Important Docs, Commits, or Code Reviews**:
+https://github.com/BloomTechBackend/bd-team-project-store-front-bd5/pull/9
 
 **Things learned:**
+How to work with dependencies.
 
 ## Week 3
 
 **Goals:**
+Finish features.
 
 **Activity:**
+A big problem with Gradle was found. So I've changed the whole structure of the project and fixed our first feature.
 
 **Important Docs, Commits, or Code Reviews**:
+https://github.com/BloomTechBackend/bd-team-project-store-front-bd5/pull/12
 
 **Things learned:**
+How to work with Gradle, so it'll build project correctly.
 
 ## Week 4
 
 **Goals:**
+Polish project before demo.
 
 **Activity:**
+Fixing bugs here and there, adding small changes. Fixing create order feature.
 
 **Important Docs, Commits, or Code Reviews**:
+https://github.com/BloomTechBackend/bd-team-project-store-front-bd5/pull/22
 
 **Things learned:**
+How to resolve conflicts in git.
