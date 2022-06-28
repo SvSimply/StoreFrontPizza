@@ -13,10 +13,7 @@ const HomePage = () => {
       <button id="button1" class="button">
         Custom Order
       </button>
-      <img
-        class="icon"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDxhPSjsYZ-Qa4BXeBurOENHdEV_WWKGSUSCHoynl_PPL-SF5monbEYdlAhXa0_V88wg&usqp=CAU"
-      />
+      <img class="icon" src="https://i.ibb.co/5GK4F2h/pizza-Logo.png" />
       <button id="button2" class="button">
         Quick Order
       </button>
