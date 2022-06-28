@@ -1,3 +1,4 @@
+import Exceptions.MenuNotFoundException;
 import dynamodb.MenuDB;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -5,18 +6,18 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 import javax.naming.Context;
 
-public class GetOrderActivity implements RequestHandler<GetOrderRequest, GetOrderResult> {
+public class GetMenuActivity implements RequestHandler<GetOrderRequest, GetOrderResult> {
 
     private final Logger log = LogManager.getLogger();
 
     private final MenuDao menuDao;
 
-    public GetOrderActivity(MenuDao menuDao) {
+    public GetMenuActivity(MenuDao menuDao) {
         this.menuDao = menuDao;
     }
 
 
-    public GetOrderResult handleRequest(final GetOrderRequest getOrderRequest, Context context) {
+    public GetOrderResult handleRequest(final GetOrderRequest getOrderRequest, Context context) throws MenuNotFoundException {
 
         log.info("Received GetOrderRequest {}", getOrderRequest);
         String requestedItemId = getOrderRequest.getItemId();
@@ -27,7 +28,7 @@ public class GetOrderActivity implements RequestHandler<GetOrderRequest, GetOrde
             return GetOrderResult.builder()
                     .withMenu(menuModel)
                     .build();
-        } catch (Exception | MenuDao.MenuNotFoundException e) {
+        } catch (MenuNotFoundException e) {
             return null;
         }
     }
