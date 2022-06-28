@@ -1,12 +1,15 @@
 import Header from './components/Header'
 import Menu1 from './components/MenuPage'
-import HomePage from './components/HomePage'
 import Footer from './components/Footer'
+import Checkout from './components/Checkout'
 
 const App = () => {
+  
   return (
     <div id='MenuAppDiv'>
-      <HomePage />
+      <Header />
+      <Checkout />
+      <Footer />
     </div>
   )
 }
