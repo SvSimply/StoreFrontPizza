@@ -1,4 +1,5 @@
 import dynamodb.Order;
+
 public class UpdateOrderResult {
     private Order order;
 
@@ -26,6 +27,4 @@ public class UpdateOrderResult {
 
         public UpdateOrderResult build() {return new UpdateOrderResult(this);}
     }
-
-
 }

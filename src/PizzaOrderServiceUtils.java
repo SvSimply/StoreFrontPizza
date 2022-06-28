@@ -6,7 +6,7 @@ public final class PizzaOrderServiceUtils {
 
     private static final Pattern INVALID_CHARACTER_PATTERN = Pattern.compile("[\"\'\\\\]");
 
-    static final int PLAYLIST_ID_LENGTH = 5;
+    static final int ORDER_ID_LENGTH = 5;
 
     // do not instantiate
     private PizzaOrderServiceUtils() {}
@@ -21,7 +21,7 @@ public final class PizzaOrderServiceUtils {
     }
 
     public static String generateOrderId() {
-        return RandomStringUtils.randomAlphanumeric(PLAYLIST_ID_LENGTH);
+        return RandomStringUtils.randomAlphanumeric(ORDER_ID_LENGTH);
     }
 }
 

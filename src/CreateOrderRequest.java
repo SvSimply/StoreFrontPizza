@@ -3,22 +3,36 @@ import java.util.Objects;
 
 public class CreateOrderRequest {
 
+    private String orderDate;
+    private ArrayList<String> menuItems;
     private String name;
+    private String phone;
+    private Double total;
 
-    private String description;
+    public CreateOrderRequest() {}
 
-    private ArrayList<String> ingredients;
-
-    public CreateOrderRequest(String name, String description, ArrayList<String> ingredients) {
+    public CreateOrderRequest(String orderDate, ArrayList<String> menuItems, String name, String phone, Double total) {
+        this.orderDate = orderDate;
+        this.menuItems = menuItems;
         this.name = name;
-        this.description = description;
-        this.ingredients = ingredients;
+        this.phone = phone;
+        this.total = total;
     }
 
-    public CreateOrderRequest(Builder builder) {
-        this.name = builder.name;
-        this.description = builder.description;
-        this.ingredients = builder.ingredients;
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public ArrayList<String> getMenuItems() {
+        return menuItems;
+    }
+
+    public void setMenuItems(ArrayList<String> menuItems) {
+        this.menuItems = menuItems;
     }
 
     public String getName() {
@@ -29,75 +43,82 @@ public class CreateOrderRequest {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public ArrayList<String> getIngredients() {
-        return ingredients;
+    public Double getTotal() {
+        return total;
     }
 
-    public void setIngredients(ArrayList<String> ingredients) {
-        this.ingredients = ingredients;
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
-    @Override
-    public boolean equals(Object o) {
-
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CreateOrderRequest that = (CreateOrderRequest) o;
-        return Objects.equals(name, that.name) &&
-                Objects.equals(description, that.description) &&
-                Objects.equals(ingredients, that.ingredients);
-    }
-
-    @Override
-    public String toString() {
-        return "CreateOrderRequest{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", ingredients=" + ingredients +
-                '}';
+    public CreateOrderRequest(Builder builder) {
+        this.orderDate = builder.orderDate;
+        this.menuItems = builder.menuItems;
+        this.name = builder.name;
+        this.phone = builder.phone;
+        this.total = builder.total;
     }
 
     public static Builder builder() { return new Builder(); }
 
     public static final class Builder {
-
+        private String orderDate;
+        private ArrayList<String> menuItems;
         private String name;
+        private String phone;
+        private Double total;
 
-        private String description;
-
-        private ArrayList<String> ingredients;
-
-        private Builder(){
+        private Builder() {
 
         }
 
-        public Builder withName(String nameToUse){
-            this.name = nameToUse;
+        public Builder withOrderDate(String orderDateToUse) {
+            this.orderDate = orderDateToUse;
             return this;
         }
 
-        public Builder withDescription(String descriptionToUse){
-            this.description = descriptionToUse;
+        public Builder withMenuItems(ArrayList<String> menuItemsToUse) {
+            this.menuItems = menuItemsToUse;
             return this;
         }
 
-        public Builder withIngredients(ArrayList<String> ingredientsToUse) {
-            this.ingredients = ingredientsToUse;
+        public Builder withName(String name) {
+            this.name = name;
             return this;
         }
 
-        public CreateOrderRequest build() {return new CreateOrderRequest(this);}
+        public Builder withPhone(String phone) {
+            this.phone = phone;
+            return this;
+        }
 
+        public Builder withTotal(Double total) {
+            this.total = total;
+            return this;
+        }
 
+        public CreateOrderRequest build() { return new CreateOrderRequest(this); }
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CreateOrderRequest that = (CreateOrderRequest) o;
+        return Objects.equals(orderDate, that.orderDate) && Objects.equals(menuItems, that.menuItems) && Objects.equals(name, that.name) && Objects.equals(phone, that.phone) && Objects.equals(total, that.total);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderDate, menuItems, name, phone, total);
     }
 }
 

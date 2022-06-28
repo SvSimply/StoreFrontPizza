@@ -7,11 +7,11 @@ import org.apache.logging.log4j.Logger;
 
 public class GetOrderByIdActivity implements RequestHandler<GetOrderByIdRequest, GetOrderByIdResult> {
     private final Logger log = LogManager.getLogger();
-    private final UpdateOrderDao updateOrderDao;
+    private final OrderDao OrderDao;
 
 
-    public GetOrderByIdActivity(UpdateOrderDao updateOrderDao) {
-        this.updateOrderDao = updateOrderDao;
+    public GetOrderByIdActivity(OrderDao OrderDao) {
+        this.OrderDao = OrderDao;
     }
 
 
@@ -32,7 +32,7 @@ public class GetOrderByIdActivity implements RequestHandler<GetOrderByIdRequest,
     public GetOrderByIdResult handleRequest(GetOrderByIdRequest getOrderByIdRequest, Context context) {
         String requestedId = getOrderByIdRequest.getOrderId();
         try {
-            Order order = updateOrderDao.getOrder(requestedId);
+            Order order = OrderDao.getOrder(requestedId);
             return GetOrderByIdResult.builder().withOrder(order).build();
         } catch (OrderNotFoundException e) {
             e.printStackTrace();

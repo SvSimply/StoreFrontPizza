@@ -24,7 +24,7 @@ public class GetMenuActivityProvider implements RequestHandler<GetMenuRequest, G
 //        Menu menuActivity = new Menu(menuDao);
 
         try {
-            return getApp().provideMenu().handleRequest(getMenuRequest, context);
+            return getApp().provideGetMenuActivity().handleRequest(getMenuRequest, context);
         } catch (MenuNotFoundException e) {
             e.printStackTrace();
         }
