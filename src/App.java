@@ -18,9 +18,14 @@ public class App {
         return new MenuDao(provideDynamoDBMapper());
     }
 
-    private OrderDao provideUpdateOrdersDao() {
+    private OrderDao provideOrderDao() {
         return new OrderDao(provideDynamoDBMapper());
     }
+
+    private GetOrderByIdDao provideGetOrderByIdDao(){
+        return new GetOrderByIdDao(provideDynamoDBMapper());
+    }
+
 
 //    private GetIngredients provideGetIngredients() {
 //        return new GetIngredients(provideDynamoDBMapper());
@@ -29,17 +34,22 @@ public class App {
         return new GetOrdersActivity(provideOrdersDao());
 }
 
-    public GetMenuActivity provideMenu() {
+    public GetMenuActivity provideGetMenuActivity() {
         return new GetMenuActivity(provideMenuDao());
     }
 
     public UpdateOrderActivity provideUpdateOrdersActivity() {
-        return new UpdateOrderActivity(provideUpdateOrdersDao());
+        return new UpdateOrderActivity(provideOrderDao());
     }
 
     public CreateOrderActivity provideCreateOrderActivity() {
-        return new CreateOrderActivity(provideUpdateOrdersDao());
+        return new CreateOrderActivity(provideOrderDao());
     }
+
+    public GetOrderByIdActivity provideGetOrderByIdActivity() {
+        return new GetOrderByIdActivity(provideOrderDao());
+    }
+
 
 
 }

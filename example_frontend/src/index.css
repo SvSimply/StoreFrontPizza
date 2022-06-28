@@ -7,6 +7,27 @@ html, body, #root {
 #MenuAppDiv {
   height: 100%;
 }
+/*Checkout*/
+#Checkout {
+  min-height: 80%;
+  text-align: center;
+}
+
+/*CheckoutTile*/
+#CheckoutTile {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-radius: 10px;
+  background-color: rgb(221, 221, 221);
+}
+
+#Pizza {
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
 
 /*Menu*/
 #MenuPageDiv {
@@ -25,8 +46,6 @@ html, body, #root {
 /*MenuTile*/
 
 #Tile {
-  margin-right: auto;
-  margin-left: auto;
   padding-top: 50px;
   padding-right: 100px;
   padding-bottom: 50px;
@@ -39,6 +58,11 @@ html, body, #root {
   border-radius: 10px;
   background-color: rgb(221, 221, 221);
   text-align: center;
+}
+
+#TileText {
+  background-color: rgba(214, 214, 214, 0.466);
+  border-radius: 10px;
 }
 
 #TileInputField {
