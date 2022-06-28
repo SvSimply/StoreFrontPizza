@@ -27,8 +27,8 @@ public class UpdateOrderRequest {
     }
 
     public UpdateOrderRequest(Builder builder) {
-        this.orderId = orderId;
-        this.status = status;
+        this.orderId = builder.orderId;
+        this.status = builder.status;
 
     }
 

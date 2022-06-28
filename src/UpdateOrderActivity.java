@@ -7,10 +7,10 @@ import org.apache.logging.log4j.Logger;
 
 public class UpdateOrderActivity implements RequestHandler<UpdateOrderRequest, UpdateOrderResult> {
     private final Logger log = LogManager.getLogger();
-    private final UpdateOrderDao updateOrderDao;
+    private final OrderDao orderDao;
 
-    public UpdateOrderActivity(UpdateOrderDao updateOrderDao) {
-        this.updateOrderDao = updateOrderDao;
+    public UpdateOrderActivity(OrderDao orderDao) {
+        this.orderDao = orderDao;
     }
 
     @Override
@@ -20,14 +20,16 @@ public class UpdateOrderActivity implements RequestHandler<UpdateOrderRequest, U
 
         Order order = null;
         try {
-            order = updateOrderDao.getOrder(requestedId);
+            order = orderDao.getOrder(requestedId);
 
         } catch (OrderNotFoundException e) {
             e.printStackTrace();
         }
+
         order.setStatus(updateOrderRequest.getStatus());
-        updateOrderDao.saveOrder(order);
-            return UpdateOrderResult.builder().withOrder(order)
-                    .build();
+        orderDao.saveOrder(order);
+        return UpdateOrderResult.builder()
+                .withOrder(order)
+                .build();
         }
 }

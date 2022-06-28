@@ -9,8 +9,6 @@ import org.apache.logging.log4j.Logger;
 
 public class GetOrdersDao {
 
-        AmazonDynamoDB dynamoDBClient;
-        DynamoDBMapper mapper = new DynamoDBMapper(dynamoDBClient);
         private final DynamoDBMapper dynamoDbMapper;
         private final Logger log = LogManager.getLogger();
 

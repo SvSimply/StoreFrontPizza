@@ -2,10 +2,10 @@ import Exceptions.OrderNotFoundException;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import dynamodb.Order;
 
-public class UpdateOrderDao {
+public class OrderDao {
     private final DynamoDBMapper dynamoDbMapper;
 
-    public UpdateOrderDao(DynamoDBMapper dynamoDbMapper) {
+    public OrderDao(DynamoDBMapper dynamoDbMapper) {
         this.dynamoDbMapper = dynamoDbMapper;
     }
 
@@ -18,6 +18,7 @@ public class UpdateOrderDao {
 
         return order;
     }
+
     public Order saveOrder(Order newOrder) {
         dynamoDbMapper.save(newOrder);
         return newOrder;

@@ -1,3 +1,4 @@
+import Exceptions.MenuNotFoundException;
 import dynamodb.MenuDB;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,7 +28,7 @@ public class GetOrderActivity implements RequestHandler<GetOrderRequest, GetOrde
             return GetOrderResult.builder()
                     .withMenu(menuModel)
                     .build();
-        } catch (Exception | MenuDao.MenuNotFoundException e) {
+        } catch (Exception | MenuNotFoundException e) {
             return null;
         }
     }

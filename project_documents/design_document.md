@@ -86,7 +86,7 @@ u7: I as an owner would like to see actual restaurant's stock.
 
 **Client front-end part:**
 
-* Menu list with the ability to select items and enter counts. Button “Next”.
+* GetMenuActivity list with the ability to select items and enter counts. Button “Next”.
 * A custom pizza page with ingredients to choose from.
 * A checkout page with places to enter customer data and the button “Order”.
 * Shows the total sum.
@@ -147,7 +147,7 @@ client.](images/FlowChart.png)
 
 
 
-## 6.2. *Get Menu Endpoint*
+## 6.2. *Get GetMenuActivity Endpoint*
 * Accepts GET request to `/order`
 * Returns the MenuModel
 
@@ -206,7 +206,7 @@ Command to update Orders table:
 ```
 aws cloudformation update-stack --region us-west-2 --stack-name storefront-orderstable --template-body file://configurations/OrdersTable.yaml --capabilities CAPABILITY_IAM
 ```
-### 7.2 `Menu` Table
+### 7.2 `GetMenuActivity` Table
 ```
 itemId 		// String - Primary
 name 		// String - Sort
@@ -215,11 +215,11 @@ category 	// String
 cost 		// Number
 ingredients  // StringArray
 ```
-Command to create Menu table:
+Command to create GetMenuActivity table:
 ```
 aws cloudformation create-stack --region us-west-2 --stack-name storefront-menutable --template-body file://configurations/MenuTable.yaml --capabilities CAPABILITY_IAM
 ```
-Command to update Menu table:
+Command to update GetMenuActivity table:
 ```
 aws cloudformation update-stack --region us-west-2 --stack-name storefront-menutable --template-body file://configurations/MenuTable.yaml --capabilities CAPABILITY_IAM
 ```
@@ -253,9 +253,9 @@ aws cloudformation update-stack --region us-west-2 --stack-name storefront-ingre
 
 ![](images/BusinessPage.png)
 
-## **Menu**
+## **GetMenuActivity**
 
-![](images/Menu.png)
+![](images/GetMenuActivity.png)
 
 ## **Order Status**
 

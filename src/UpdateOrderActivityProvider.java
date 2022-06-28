@@ -6,7 +6,6 @@ public class UpdateOrderActivityProvider implements RequestHandler<UpdateOrderRe
     private static App app;
 
     public UpdateOrderActivityProvider() {
-
     }
 
     private App getApp() {
@@ -16,10 +15,6 @@ public class UpdateOrderActivityProvider implements RequestHandler<UpdateOrderRe
 
         return app;
     }
-
-
-
-
 
     @Override
     public UpdateOrderResult handleRequest(UpdateOrderRequest updateOrderRequest, Context context) {

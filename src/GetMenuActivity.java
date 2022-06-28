@@ -5,7 +5,7 @@ import dynamodb.MenuDB;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Menu {
+public class GetMenuActivity {
     /*
     * the menu class with the different types of pizzas we serve.
 
@@ -63,7 +63,7 @@ public class Menu {
 
     private final MenuDao menuDao;
 
-    public Menu(MenuDao menuDao){this.menuDao = menuDao;}
+    public GetMenuActivity(MenuDao menuDao){this.menuDao = menuDao;}
 
     public GetMenuResult handleRequest(final GetMenuRequest getMenuRequest, Context context) throws MenuNotFoundException {
         log.info("Received GetPlaylistRequest {}", getMenuRequest);
