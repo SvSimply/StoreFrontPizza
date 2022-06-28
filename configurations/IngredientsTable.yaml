@@ -5,13 +5,9 @@ Resources:
       "AttributeDefinitions":
         - "AttributeName": "itemId"
           "AttributeType": "S"
-        - "AttributeName": "name"
-          "AttributeType": "S"
       "KeySchema":
         - "AttributeName": "itemId"
           "KeyType": "HASH"
-        - "AttributeName": "name"
-          "KeyType": "RANGE"
       BillingMode: PAY_PER_REQUEST
       TableName: "Ingredients"
   LambdaRole:
