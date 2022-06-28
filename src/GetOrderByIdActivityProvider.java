@@ -1,3 +1,4 @@
+import Exceptions.OrderNotFoundException;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
@@ -9,11 +10,6 @@ public class GetOrderByIdActivityProvider implements RequestHandler<GetOrderById
 
     }
 
-//    @Override
-//    public GetOrderByIdResult handleRequest(final GetPlaylistRequest getPlaylistRequest, Context context) {
-//        return getApp().provideGetPlaylistActivity().handleRequest(getPlaylistRequest, context);
-//    }
-
     private App getApp() {
         if (app == null) {
             app = new App();
@@ -24,6 +20,10 @@ public class GetOrderByIdActivityProvider implements RequestHandler<GetOrderById
 
     @Override
     public GetOrderByIdResult handleRequest(GetOrderByIdRequest getOrderByIdRequest, Context context) {
-        return getApp().provideGetOrderByIdActivity().handleRequest(getOrderByIdRequest, context);
+        try {
+            return getApp().provideGetOrderByIdActivity().handleRequest(getOrderByIdRequest, context);
+        } catch (OrderNotFoundException e) {
+            throw new RuntimeException("[BadRequest] Invalid Order Id.");
+        }
     }
 }

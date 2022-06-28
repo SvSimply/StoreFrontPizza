@@ -5,7 +5,7 @@ import dynamodb.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class GetOrderByIdActivity implements RequestHandler<GetOrderByIdRequest, GetOrderByIdResult> {
+public class GetOrderByIdActivity  {
     private final Logger log = LogManager.getLogger();
     private final OrderDao OrderDao;
 
@@ -15,28 +15,9 @@ public class GetOrderByIdActivity implements RequestHandler<GetOrderByIdRequest,
     }
 
 
-//    @Override
-//    public GetOrderByIdResult handleRequest(final GetPlaylistRequest getPlaylistRequest, Context context) {
-//        log.info("Received GetPlaylistRequest {}", getPlaylistRequest);
-//        String requestedId = getPlaylistRequest.getId();
-//        Playlist playlist = playlistDao.getPlaylist(requestedId);
-//        PlaylistModel playlistModel = new ModelConverter().toPlaylistModel(playlist);
-//
-//        return GetPlaylistResult.builder()
-//                .withPlaylist(playlistModel)
-//                .build();
-//    }
-
-
-    @Override
-    public GetOrderByIdResult handleRequest(GetOrderByIdRequest getOrderByIdRequest, Context context) {
+    public GetOrderByIdResult handleRequest(GetOrderByIdRequest getOrderByIdRequest, Context context) throws OrderNotFoundException{
         String requestedId = getOrderByIdRequest.getOrderId();
-        try {
-            Order order = OrderDao.getOrder(requestedId);
-            return GetOrderByIdResult.builder().withOrder(order).build();
-        } catch (OrderNotFoundException e) {
-            e.printStackTrace();
-        }
-       return null;
+        Order order = OrderDao.getOrder(requestedId);
+        return GetOrderByIdResult.builder().withOrder(order).build();
     }
 }
