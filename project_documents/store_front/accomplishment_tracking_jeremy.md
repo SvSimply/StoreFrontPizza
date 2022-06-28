@@ -36,40 +36,40 @@ instructors by the end of the unit._
 
 ## Week 1
 
-**Goals:**
+**Goals:** Project Design Document.
 
-**Activity:**
+**Activity:** Daily meetings as a group to discuss project structure.
 
-**Important Docs, Commits, or Code Reviews**:
+**Important Docs, Commits, or Code Reviews**: Design Document Template
 
-**Things learned:**
+**Things learned:** SCRUM basics.
 
 ## Week 2
 
-**Goals:**
+**Goals:** Project Framework
 
-**Activity:**
+**Activity:** Set up Tables, Lambdas, and APIs in  preparation for code to be written. 
 
-**Important Docs, Commits, or Code Reviews**:
+**Important Docs, Commits, or Code Reviews**: AWS documentation for API Gateway.
 
-**Things learned:**
+**Things learned:** API basics, how to integrate a Lambda function into an API.
 
 ## Week 3
 
-**Goals:**
+**Goals:** Project Feature Complete
 
-**Activity:**
+**Activity:** Assist with backend development. Test Lambda functions as well as our API.
 
 **Important Docs, Commits, or Code Reviews**:
 
-**Things learned:**
+**Things learned:** Basics of Testing an API as well as how to call it.
 
 ## Week 4
 
-**Goals:**
+**Goals:** Wrap Up/ Reflection.
 
-**Activity:**
+**Activity:** Small project fixes. Finish all project documents.
 
 **Important Docs, Commits, or Code Reviews**:
 
-**Things learned:**
+**Things learned:** A better understanding of software development as a team.
