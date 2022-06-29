@@ -1,6 +1,8 @@
 /*Index.html*/
-html, body, #root {
-  height: 100%
+html,
+body,
+#root {
+  height: 100%;
 }
 
 /*App*/
@@ -132,6 +134,7 @@ html, body, #root {
   background-color: rgba(243, 198, 129, 1);
   border-bottom: 12px;
   font-size: 32px;
+  text-align: center;
   font-family: "Italiana", serif;
   -webkit-box-shadow: 0px 2px 16px 0px rgba(243, 198, 129, 1);
   box-shadow: 0px 2px 16px 0px rgba(243, 198, 129, 1);
@@ -149,7 +152,6 @@ html, body, #root {
   border-radius: 12px;
   border-color: rgba(243, 198, 129, 1);
   background-color: rgba(220, 107, 41, 0.9);
-
   transition: all 200ms ease-in-out;
 }
 
@@ -191,8 +193,8 @@ img.headerImg {
 
 img.icon {
   grid-area: image;
-  max-width: 500px;
-  margin-left: 50px;
+  max-width: 300px;
+  margin-left: 80px;
 }
 
 img.specials {
@@ -213,4 +215,233 @@ img.specials {
   grid-area: lPanel;
   justify-self: stretch;
   padding-top: 200px;
+}
+.backendContainer {
+  display: grid;
+  grid-template-columns: [col-1] 20% [col-2] 1fr [col-3] 1fr [col-4]20%;
+  grid-template-areas:
+    "header header header header"
+    "tag tag tag tag "
+    ". form form ."
+    ". button1 button2 ."
+    ". orders orders .";
+}
+#backendRefresh {
+  margin-top: 20px;
+  grid-area: button1;
+  justify-self: stretch;
+  margin-right: 10px;
+}
+
+#backendRefresh:hover {
+  background-color: rgba(220, 107, 41, 0.85);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(220, 107, 41, 0.8);
+  box-shadow: 0px 1px 8px 0px rgba(220, 107, 41, 0.8);
+}
+
+#activeRefresh {
+  margin-top: 20px;
+  grid-area: button2;
+  justify-self: stretch;
+  margin-left: 10px;
+}
+
+#activeRefresh:hover {
+  background-color: rgba(220, 107, 41, 0.85);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(220, 107, 41, 0.8);
+  box-shadow: 0px 1px 8px 0px rgba(220, 107, 41, 0.8);
+}
+
+.orders {
+  margin-top: 3%;
+  justify-self: stretch;
+  -ms-grid-column-align: stretch;
+  grid-area: orders;
+  align-self: stretch;
+}
+
+.orderTile {
+  grid-template-columns: [col-1] 1fr [col-2] 1fr;
+  row-gap: 5px;
+  grid-area: orders;
+  grid-template-areas:
+    "orderTitle orderId"
+    "customerName  status"
+    "phone ordDate"
+    "item item"
+    "update  price";
+  display: grid;
+  font-family: "Bona Nova", serif;
+  margin-bottom: 1%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(220, 107, 41, 0.6);
+  border-radius: 7px;
+  background-color: rgba(243, 198, 129, 0.2);
+}
+
+h4.orderId {
+  grid-area: orderTitle;
+  text-align: center;
+  height: 30px;
+  margin: 0px;
+  border-bottom: 1px solid rgba(220, 107, 41, 0.6);
+}
+p.orderId {
+  grid-area: orderId;
+  text-align: center;
+  height: 30px;
+  margin: 0px;
+  border-bottom: 1px solid rgba(220, 107, 41, 0.6);
+}
+
+.custName {
+  grid-area: customerName;
+  padding: 0;
+  border-bottom: 1px solid black;
+}
+.custName > * {
+  margin: 5px;
+}
+.phone {
+  grid-area: phone;
+  border-bottom: 1px solid black;
+}
+.phone > * {
+  margin: 5px;
+}
+.ordDate {
+  grid-area: ordDate;
+  text-align: right;
+  border-bottom: 1px solid black;
+}
+.ordDate > * {
+  margin: 5px;
+}
+
+.price {
+  grid-area: price;
+  text-align: right;
+}
+.price > * {
+  margin: 5px;
+}
+.status {
+  grid-area: status;
+  text-align: right;
+  border-bottom: 1px solid black;
+}
+.status > * {
+  margin: 5px;
+}
+.item {
+  grid-area: item;
+  grid-template-columns: [col-1] 1fr [col-2] 1fr;
+  grid-template-areas: "itemTitle itemName";
+  border-bottom: 1px solid black;
+  display: grid;
+}
+.item > * {
+  margin-top: 0;
+  margin: 0px;
+}
+.itemTitle {
+  grid-area: itemTitle;
+  font-size: 20px;
+}
+.itemName {
+  grid-area: itemName;
+  text-align: right;
+}
+.update {
+  grid-area: update;
+  border-right: 1px solid black;
+}
+.update > * {
+  margin: 5px;
+}
+
+.formTile {
+  grid-area: form;
+  grid-template-columns: [col-1] 8% [col-2] 8% [col-3] 1fr [col-4]1fr [col-5]16%;
+  grid-template-areas:
+    " title title title title title"
+    ". . searchText searchButton ."
+    "order order order order order"
+    "radio1 radio2 . . set";
+  display: grid;
+  margin-top: 1%;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgba(220, 107, 41, 0.6);
+  border-radius: 7px;
+  background-color: rgba(243, 198, 129, 0.2);
+  min-height: 200px;
+}
+
+.formTitle {
+  font-family: "Bona Nova", serif;
+  grid-area: title;
+  margin-top: 10px;
+  text-align: center;
+  border-width: 0px 0px 2px 0px;
+  border-style: solid;
+  border-color: rgba(220, 107, 41, 0.6);
+  background-color: rgba(243, 198, 129, 0.22);
+}
+
+.formInput {
+  grid-area: searchText;
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+  height: 35px;
+  border-radius: 5px;
+  border-width: 2px;
+  width: 400px;
+}
+
+.formSubmit {
+  grid-area: searchButton;
+  border-radius: 3px;
+  font-size: 22px;
+  height: 40px;
+  border-width: 3px;
+  font-family: "Bona Nova", serif;
+  background-color: rgba(243, 198, 129, 0.22);
+  border-color: rgba(220, 107, 41, 0.6);
+}
+.formSubmit:hover {
+  border-width: 1px;
+}
+#srchComp {
+  text-align: center;
+  grid-area: order;
+  font-size: 22px;
+  font-family: "Bona Nova", serif;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(220, 107, 41, 0.6);
+  border-radius: 7px;
+}
+.radioOne {
+  font-size: 22px;
+  font-family: "Bona Nova", serif;
+  grid-area: radio1;
+}
+.radioTwo {
+  font-size: 22px;
+  font-family: "Bona Nova", serif;
+  grid-area: radio2;
+}
+.buttonGrid {
+  grid-area: set;
+}
+#setButton {
+  justify-self: stretch;
+}
+#setButton:hover {
+  background-color: rgba(220, 107, 41, 0.85);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(220, 107, 41, 0.8);
+  box-shadow: 0px 1px 8px 0px rgba(220, 107, 41, 0.8);
 }

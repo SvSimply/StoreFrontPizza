@@ -1,37 +1,22 @@
 import MenuTile from "./MenuTile"
-import axios from "axios"
-import { Component } from "react";
 
-class Menu extends Component {
+const Menu = ({pizzas, refresh, list}) => {
 
-  state = {
-    pizzas: []
-  }
+  window.onload = refresh
 
-  constructor() {
-    super();
-    axios.get('https://7fy93af9yj.execute-api.us-west-2.amazonaws.com/Test/getmenu/order').then(res => {
-      this.setState({ pizzas: res.data.menu})
-    })
-  }
+  return (
+    <div id='MenuPageDiv'>
+        <h1>Our Menu</h1>
+        <div id='MenuTileGrid'> 
 
-  render() {
-    return (
-      <div id='MenuPageDiv'>
-          <h1>Our Menu</h1>
-          <div id='MenuTileGrid'> 
+          {pizzas.map(pizzas => <MenuTile 
+            Pizza={pizzas}
+            orderList={list}
+          />)}
 
-            {this.state.pizzas.map(pizzas => <MenuTile 
-              NameOfPizza={pizzas.name} 
-              Cost={pizzas.cost} 
-              Description={pizzas.description} 
-              ItemId={pizzas.itemId}
-            />)}
-
-          </div>
-      </div>
-    )
-  }
+        </div>
+    </div>
+  )
 }
 
-export default Menu;
+export default Menu
