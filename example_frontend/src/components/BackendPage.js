@@ -1,10 +1,18 @@
 import MenuTile from "./MenuTile";
 import Tagline from "./Tagline";
 import Header from "./Header";
+import Search from "./Search";
 
 import Order from "./Order";
 
-const BackendPage = ({ ord, retrieveOrders }) => {
+const BackendPage = ({
+  ord,
+  srch,
+  retrieveOrders,
+  retrieveActive,
+  retrieveSearch,
+  setStatus,
+}) => {
   return (
     <div className="backendContainer">
       <div id="header">
@@ -15,25 +23,59 @@ const BackendPage = ({ ord, retrieveOrders }) => {
       </div>
       <button
         id="backendRefresh"
-        class="button"
+        className="button"
         onClick={() => retrieveOrders()}
       >
-        Refresh Orders
+        Get all orders
       </button>
-      <form className="formTile">
+      <button
+        id="activeRefresh"
+        className="button"
+        onClick={() => retrieveActive()}
+      >
+        Get active orders
+      </button>
+      <div className="formTile">
         {" "}
         <h2 className="formTitle"> Search for an Order</h2>
         <input
+          onSubmit={() => {
+            retrieveSearch();
+          }}
           placeholder="Order Number"
           type="text"
           className="formInput"
-        ></input>
+          id="searchInput"
+        />
         <input
           className="formSubmit"
-          type="submit"
+          type="button"
           value="Search for Order"
-        ></input>
-      </form>
+          onClick={() => retrieveSearch()}
+        />
+        <div id="srchComp">
+          <Search className="orders" ord={srch} />
+        </div>
+        <div className="radioOne">
+          <input type="radio" id="rdyRadio" name="set" value="READY" />
+          <label for="rdyButton">Ready</label>
+        </div>
+        <div className="radioTwo">
+          <label for="rdyButton">In process</label>
+          <input
+            type="radio"
+            id="inProcessRadio"
+            name="set"
+            value="IN_PROCESS"
+          />
+        </div>
+        <div className="buttonGrid">
+          <button id="setButton" className="button" onClick={() => setStatus()}>
+            Set status
+          </button>
+        </div>
+      </div>
+
       <div className="orders">
         <div id="orderTile">
           {ord.map((orders) => (

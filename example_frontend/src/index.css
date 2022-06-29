@@ -193,8 +193,8 @@ img.headerImg {
 
 img.icon {
   grid-area: image;
-  max-width: 500px;
-  margin-left: 50px;
+  max-width: 300px;
+  margin-left: 80px;
 }
 
 img.specials {
@@ -230,9 +230,23 @@ img.specials {
   margin-top: 20px;
   grid-area: button1;
   justify-self: stretch;
+  margin-right: 10px;
 }
 
 #backendRefresh:hover {
+  background-color: rgba(220, 107, 41, 0.85);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(220, 107, 41, 0.8);
+  box-shadow: 0px 1px 8px 0px rgba(220, 107, 41, 0.8);
+}
+
+#activeRefresh {
+  margin-top: 20px;
+  grid-area: button2;
+  justify-self: stretch;
+  margin-left: 10px;
+}
+
+#activeRefresh:hover {
   background-color: rgba(220, 107, 41, 0.85);
   -webkit-box-shadow: 0px 1px 4px 0px rgba(220, 107, 41, 0.8);
   box-shadow: 0px 1px 8px 0px rgba(220, 107, 41, 0.8);
@@ -349,6 +363,13 @@ p.orderId {
 
 .formTile {
   grid-area: form;
+  grid-template-columns: [col-1] 8% [col-2] 8% [col-3] 1fr [col-4]1fr [col-5]16%;
+  grid-template-areas:
+    " title title title title title"
+    ". . searchText searchButton ."
+    "order order order order order"
+    "radio1 radio2 . . set";
+  display: grid;
   margin-top: 1%;
   border-style: solid;
   border-width: 3px;
@@ -360,6 +381,7 @@ p.orderId {
 
 .formTitle {
   font-family: "Bona Nova", serif;
+  grid-area: title;
   margin-top: 10px;
   text-align: center;
   border-width: 0px 0px 2px 0px;
@@ -369,6 +391,7 @@ p.orderId {
 }
 
 .formInput {
+  grid-area: searchText;
   margin: 0;
   padding: 0;
   font-size: 22px;
@@ -379,6 +402,7 @@ p.orderId {
 }
 
 .formSubmit {
+  grid-area: searchButton;
   border-radius: 3px;
   font-size: 22px;
   height: 40px;
@@ -389,4 +413,35 @@ p.orderId {
 }
 .formSubmit:hover {
   border-width: 1px;
+}
+#srchComp {
+  text-align: center;
+  grid-area: order;
+  font-size: 22px;
+  font-family: "Bona Nova", serif;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(220, 107, 41, 0.6);
+  border-radius: 7px;
+}
+.radioOne {
+  font-size: 22px;
+  font-family: "Bona Nova", serif;
+  grid-area: radio1;
+}
+.radioTwo {
+  font-size: 22px;
+  font-family: "Bona Nova", serif;
+  grid-area: radio2;
+}
+.buttonGrid {
+  grid-area: set;
+}
+#setButton {
+  justify-self: stretch;
+}
+#setButton:hover {
+  background-color: rgba(220, 107, 41, 0.85);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(220, 107, 41, 0.8);
+  box-shadow: 0px 1px 8px 0px rgba(220, 107, 41, 0.8);
 }
