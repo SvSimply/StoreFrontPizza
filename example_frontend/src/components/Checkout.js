@@ -34,7 +34,7 @@ const Checkout = (ordersList) => {
             + currentdate.getMinutes() + ":" 
             + currentdate.getSeconds();
 
-        axios.post('', {
+        axios.post('https://7fy93af9yj.execute-api.us-west-2.amazonaws.com/Test/createorder/checkout', {
             Name: name,
             Phone: phone,
             MenuItems: ordersIdList,
