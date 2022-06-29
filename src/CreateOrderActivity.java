@@ -4,7 +4,12 @@ import org.apache.logging.log4j.Logger;
 
 import javax.management.InvalidAttributeValueException;
 import com.amazonaws.services.lambda.runtime.Context;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class CreateOrderActivity  {
@@ -32,14 +37,18 @@ public class CreateOrderActivity  {
             throw new InvalidAttributeValueException("The order's list is empty.");
         }
 
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String strDate = dateFormat.format(date);
+
         Order newOrder = new Order();
         newOrder.setOrderId(PizzaOrderServiceUtils.generateOrderId());
         newOrder.setStatus("RECEIVED");
-        newOrder.setOrderDate(createOrderRequest.getOrderDate());
+        newOrder.setOrderDate(strDate);
         newOrder.setCustomerName(createOrderRequest.getName());
         newOrder.setTotal(createOrderRequest.getTotal());
         newOrder.setCustomerPhone(createOrderRequest.getPhone());
-        newOrder.setUpdateDate(createOrderRequest.getOrderDate());
+        newOrder.setUpdateDate(strDate);
 
         // deep copy for menuItems list
         ArrayList<String> newItemsList = new ArrayList<>(createOrderRequest.getMenuItems());

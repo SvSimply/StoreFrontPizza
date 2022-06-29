@@ -20,8 +20,8 @@ public class CreateOrderActivityProvider implements RequestHandler<CreateOrderRe
         try {
             return getApp().provideCreateOrderActivity().handleRequest(createOrderRequest, context) ;
         } catch (InvalidAttributeValueException e) {
-            e.printStackTrace();
+            throw new RuntimeException("[BadRequest] Invalid characters in name or customer field.");
         }
-        return null;
+//        return null;
     }
 }

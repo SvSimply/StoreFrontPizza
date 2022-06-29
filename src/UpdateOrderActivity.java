@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class UpdateOrderActivity implements RequestHandler<UpdateOrderRequest, UpdateOrderResult> {
+public class UpdateOrderActivity {
     private final Logger log = LogManager.getLogger();
     private final OrderDao orderDao;
 
@@ -18,18 +18,11 @@ public class UpdateOrderActivity implements RequestHandler<UpdateOrderRequest, U
         this.orderDao = orderDao;
     }
 
-    @Override
-    public UpdateOrderResult handleRequest(final UpdateOrderRequest updateOrderRequest, Context context) {
+
+    public UpdateOrderResult handleRequest(final UpdateOrderRequest updateOrderRequest, Context context) throws OrderNotFoundException {
         log.info("Received UpdateOrderRequest {}", updateOrderRequest);
         String requestedId = updateOrderRequest.getOrderId();
-
-        Order order = null;
-        try {
-            order = orderDao.getOrder(requestedId);
-
-        } catch (OrderNotFoundException e) {
-            e.printStackTrace();
-        }
+        Order order = orderDao.getOrder(requestedId);
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String strDate = dateFormat.format(date);
