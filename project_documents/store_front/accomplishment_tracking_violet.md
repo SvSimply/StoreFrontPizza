@@ -1,4 +1,4 @@
-# [Your Name] - Store Front Accomplishment Tracking
+# Violet Red - Store Front Accomplishment Tracking
 
 Each team member should have their own version of this document.
 
@@ -36,40 +36,43 @@ instructors by the end of the unit._
 
 ## Week 1
 
-**Goals:**
+**Goals:** Collect front end projects that I previously worked on, brush up, find resources, and begin mapping out what the pages should look like at the end of production
 
-**Activity:**
+**Activity:** Create concepts of each page, bookmark links to videos
 
-**Important Docs, Commits, or Code Reviews**:
+**Important Docs, Commits, or Code Reviews**: I pushed forward document changes such as the concepts and general design plan of the front end.
 
-**Things learned:**
+**Things learned:** Documentation, planning, Trello boards, and team discussion
 
 ## Week 2
 
-**Goals:**
+**Goals:** Begin basic construction of the homepage, css, and js.
 
-**Activity:**
+**Activity:** Code the basic implementation of the homepage, trying to mimic the design document as much as possible.
 
 **Important Docs, Commits, or Code Reviews**:
 
-**Things learned:**
+**Things learned:** Grid placement, general page design, hover functionality.
 
 ## Week 3
 
-**Goals:**
+**Goals:** Create Backend Page, do basic styling, introduce react to front end.
 
-**Activity:**
+**Activity:** Update code to implement react, use use states to manipulate back end/
 
 **Important Docs, Commits, or Code Reviews**:
 
-**Things learned:**
+**Things learned:** Use states, passing functions to components, get calls using axios.
 
 ## Week 4
 
-**Goals:**
+**Goals:** Finish creation of backend page, implement axios commands and function calls, update css of backend page
 
-**Activity:**
+**Activity:** Code an api put request to set an order's status based on the condition of radio buttons listed on the main page. Add CSS and style the elements accordingly.
 
-**Important Docs, Commits, or Code Reviews**:
+**Important Docs, Commits, or Code Reviews**: Pushed and committed an update to the backend, finished development of it.
 
-**Things learned:**
+**Things learned:** How to set a radio button's values based on when they're checked and how to draw that data into a function.
+
+
+
